@@ -3,6 +3,7 @@ import java.net.*;
 
 public class Receiver {
 
+    private final static String POLYNOME_GENERATEUR = "10001000000100001";
     /**
      * Roule receveur
      */
