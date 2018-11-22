@@ -1,5 +1,5 @@
 import java.io.IOException;
-import java.net.Socket;
+import java.net.*;
 
 public class Sender {
 
@@ -15,7 +15,7 @@ public class Sender {
     public static void main(String[] args) throws IOException {
 
         if (args.length != 4) {
-            System.out.println("Mauvais nombre d'arguments");
+            System.err.println("Mauvais nombre d'arguments.");
             System.exit(0);
         }
 
@@ -25,6 +25,14 @@ public class Sender {
         int port = Integer.parseInt(args[1]);
         int connDemand = Integer.parseInt(args[3]);
 
-        Socket socket = new Socket(serverAddress, port);
+        try {
+            Socket socket = new Socket(serverAddress, port);
+
+        } catch (SocketException sockEx){
+            sockEx.printStackTrace();
+            System.err.println("There was a problem opening a socket.");
+            System.exit(0);
+        }
+
     }
 }
