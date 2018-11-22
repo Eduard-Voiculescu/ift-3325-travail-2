@@ -12,6 +12,14 @@ public class TestBitStuffing {
 
     }
 
+    public String testSenderEmpty(){
+        BitStuffing bitStuffing = new BitStuffing();
+
+        String origin = "";
+        origin = bitStuffing.bitStuffingSender(origin);
+        return origin;
+    }
+
     public String testReceiver(){
         BitStuffing bitStuffing = new BitStuffing();
 

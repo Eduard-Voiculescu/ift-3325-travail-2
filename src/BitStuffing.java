@@ -13,6 +13,12 @@ public class BitStuffing {
     public String bitStuffingSender(String data){
         int ctr = 0;
         StringBuilder bitStuffedData = new StringBuilder();
+
+        /* We have to consider the fact that a data set to send can be empty. */
+        if (data.length() == 0){
+            return "Data set to send is empty. Nothing to bit stuff.";
+        }
+
         for(int i = 0; i < data.length(); i++){
             /* We have 5 consecutive '1'. We append a 0 */
             if (ctr == 5){

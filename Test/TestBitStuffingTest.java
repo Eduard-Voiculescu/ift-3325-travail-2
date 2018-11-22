@@ -12,6 +12,14 @@ public class TestBitStuffingTest {
     }
 
     @Test
+    public void testSenderEmpty() {
+        TestBitStuffing testBitStuffing = new TestBitStuffing();
+        Assert.assertEquals(testBitStuffing.testSenderEmpty(), "Data set to send is empty. Nothing to bit stuff.");
+
+        System.out.println("----- JUnit testSenderEmpty() finished without error. -----");
+    }
+
+    @Test
     public void testReceiver() {
         TestBitStuffing testBitStuffing = new TestBitStuffing();
         Assert.assertEquals(testBitStuffing.testReceiver(), "0111111001111111111111110");
