@@ -3,15 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ift-3325-travail-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ift-3325-travail-2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestBitStuffing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestBitStuffing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestBitStuffingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestBitStuffingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Server.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Trame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BitStuffing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BitStuffing.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,12 +41,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4053" />
+          <entry key="java" value="4219" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4053" />
+          <entry key="JAVA" value="4219" />
         </counts>
       </usages-collector>
     </session>
@@ -84,7 +80,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6255734">
+    <splitter split-orientation="horizontal" split-proportion="0.5091743">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -105,11 +101,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Trame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+                <state relative-caret-position="714">
+                  <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
                   <folding>
                     <element signature="e#553#554#0" expanded="true" />
                     <element signature="e#580#581#0" expanded="true" />
@@ -118,11 +114,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+                <state relative-caret-position="323">
+                  <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -140,20 +136,20 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="17" selection-start-line="17" selection-end-line="17" />
+                <state relative-caret-position="374">
+                  <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+                <state relative-caret-position="323">
+                  <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -187,11 +183,11 @@
         <option value="$PROJECT_DIR$/src/Receiver.java" />
         <option value="$PROJECT_DIR$/Test/TestJunit.java" />
         <option value="$PROJECT_DIR$/Test/TestJunitTest.java" />
+        <option value="$PROJECT_DIR$/src/Sender.java" />
+        <option value="$PROJECT_DIR$/src/Trame.java" />
         <option value="$PROJECT_DIR$/Test/TestBitStuffing.java" />
         <option value="$PROJECT_DIR$/Test/TestBitStuffingTest.java" />
         <option value="$PROJECT_DIR$/src/BitStuffing.java" />
-        <option value="$PROJECT_DIR$/src/Sender.java" />
-        <option value="$PROJECT_DIR$/src/Trame.java" />
       </list>
     </option>
   </component>
@@ -258,7 +254,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542859593925" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542861687234" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -314,10 +310,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestJunitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestBitStuffingTest.testReceiverEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ift-3325-travail-2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestJunitTest" />
+      <option name="MAIN_CLASS_NAME" value="TestBitStuffingTest" />
+      <option name="METHOD_NAME" value="testReceiverEmpty" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -334,18 +332,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.TestJunitTest.test1" />
-      <item itemvalue="JUnit.TestJunitTest" />
       <item itemvalue="JUnit.TestBitStuffingTest" />
       <item itemvalue="JUnit.TestBitStuffingTest.testReceiver" />
       <item itemvalue="Application.BitStuffing" />
+      <item itemvalue="JUnit.TestBitStuffingTest.testReceiverEmpty" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestBitStuffingTest" />
+        <item itemvalue="JUnit.TestBitStuffingTest.testReceiverEmpty" />
         <item itemvalue="JUnit.TestBitStuffingTest.testReceiver" />
         <item itemvalue="Application.BitStuffing" />
         <item itemvalue="JUnit.TestJunitTest.test1" />
-        <item itemvalue="JUnit.TestJunitTest" />
       </list>
     </recent_temporary>
   </component>
@@ -362,32 +360,11 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="5129000" />
+      <workItem from="1542855038013" duration="6167000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestJunitTest_test1 - 2018.11.21 at 22h 35m 30s.xml">
-      <configuration name="TestJunitTest.test1" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestBitStuffingTest - 2018.11.21 at 22h 43m 23s.xml">
-      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestBitStuffingTest - 2018.11.21 at 22h 43m 49s.xml">
-      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestBitStuffingTest_testReceiver - 2018.11.21 at 22h 44m 33s.xml">
-      <configuration name="TestBitStuffingTest.testReceiver" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestBitStuffingTest - 2018.11.21 at 22h 44m 38s.xml">
-      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestBitStuffingTest - 2018.11.21 at 22h 44m 57s.xml">
-      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TestBitStuffingTest - 2018.11.21 at 22h 46m 05s.xml">
-      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestBitStuffingTest_testReceiver - 2018.11.21 at 22h 47m 40s.xml">
       <configuration name="TestBitStuffingTest.testReceiver" configurationId="JUnit" />
     </history-entry>
@@ -397,9 +374,30 @@
     <history-entry file="TestBitStuffingTest - 2018.11.21 at 22h 49m 28s.xml">
       <configuration name="TestBitStuffingTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestBitStuffingTest - 2018.11.21 at 23h 34m 24s.xml">
+      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestBitStuffingTest - 2018.11.21 at 23h 35m 09s.xml">
+      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestBitStuffingTest - 2018.11.21 at 23h 35m 53s.xml">
+      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestBitStuffingTest - 2018.11.21 at 23h 36m 12s.xml">
+      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestBitStuffingTest - 2018.11.21 at 23h 37m 51s.xml">
+      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestBitStuffingTest_testReceiverEmpty - 2018.11.21 at 23h 39m 29s.xml">
+      <configuration name="TestBitStuffingTest.testReceiverEmpty" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestBitStuffingTest - 2018.11.21 at 23h 41m 17s.xml">
+      <configuration name="TestBitStuffingTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15256000" />
+    <option name="totallyTimeSpent" value="16294000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -414,7 +412,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40238613" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18329719" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -488,23 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Receiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -519,21 +500,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Trame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        <state relative-caret-position="714">
+          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
           <folding>
             <element signature="e#553#554#0" expanded="true" />
             <element signature="e#580#581#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
         </state>
       </provider>
     </entry>

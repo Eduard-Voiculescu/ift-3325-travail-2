@@ -18,4 +18,13 @@ public class TestBitStuffingTest {
 
         System.out.println("----- JUnit testReceiver() finished without error. -----");
     }
+
+    @Test
+    public void testReceiverEmpty(){
+        TestBitStuffing testBitStuffing = new TestBitStuffing();
+        Assert.assertEquals(testBitStuffing.testReceiverEmpty(), "Empty Data in Frame.");
+
+        System.out.println("----- JUnit testReceiverEmpty() finished without error. -----");
+
+    }
 }

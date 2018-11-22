@@ -39,6 +39,12 @@ public class BitStuffing {
     public String bitStuffingReceiver(String data) {
         int ctr = 0;
         StringBuilder bitStuffedData = new StringBuilder();
+
+        /* We have to consider the fact that a data set from a frame can be empty. */
+        if (data.length() == 0){
+            return "Empty Data in Frame.";
+        }
+
         for(int i = 0; i < data.length(); i++){
             if (ctr == 5){
                 ctr = 0;
