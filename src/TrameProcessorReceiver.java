@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.Socket;
 
-public class TrameProcessor extends Thread {
+public class TrameProcessorReceiver extends Thread {
 
     private Socket socket;
 
@@ -10,7 +10,7 @@ public class TrameProcessor extends Thread {
      *
      * @param socket Socket
      */
-    TrameProcessor(Socket socket) {
+    TrameProcessorReceiver(Socket socket) {
         this.socket = socket;
     }
 

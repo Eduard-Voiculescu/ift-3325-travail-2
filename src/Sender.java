@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.*;
 
 public class Sender {
@@ -46,12 +43,38 @@ public class Sender {
         try (
                 Socket socket = new Socket(machineName, portNumber);
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(
-                                new InputStreamReader(socket.getInputStream()))
+
+                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
+                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream())
+
         ){
             if (timeout > 0){
                 // TODO : Create the frame
                 // TODO : Bitstuff the data
+
+
+                /*
+                * Num -> 8 bits -> 255 -> 11111111 reserver pour RR
+                *                         00000000 reserver pour REJ
+                *                         et le reste cest pour les trames
+                * Creer la trame -> |  FLAG  |   Type   |   Num   |   Data   |   CRC   |  FLAG  |
+                *                   |  1  |   1   |   1   |   0..n   |   2   |  1  | -> 6 octets min (48 bits)
+                *    |  01111110  |    I, C, A, R, F or P   |   Num   |   Coucou toto   |   CRC   |  01111110  |
+                *
+                * Switch:
+                *   CASE  I, C, A, R, F or P
+                *
+                *
+                *
+                * */
+
+
+
+                // SENDER --> TrameProcessorSender --> RECEIVER
+                // RECEIVER--> TrameProcessorReceiver --> SENDER
+                // SENDER check le num pour que cest ok
+                //  SI ACK ok on fait rien
+                //  SINON RENVOYER LA TRAME
             }
 
             return 1; // Everything is OK

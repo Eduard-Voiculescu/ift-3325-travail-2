@@ -17,7 +17,7 @@ public class Receiver {
         try{
 
             while(true) {
-                new TrameProcessor(serverSocket.accept()).start();
+                new TrameProcessorReceiver(serverSocket.accept()).start();
             }
 
         } finally {
