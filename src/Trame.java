@@ -18,6 +18,23 @@ public class Trame {
         this.crc = crc;
     }
 
+
+    /**
+     * This function will return the frame format :
+     * -------------------------------------------------------------
+     * |  FLAG  |   Type   |   Num   |   Data   |   CRC   |  FLAG  |
+     * -------------------------------------------------------------
+     * @return : Returns the entire frame format.
+     */
+    public String makeTrameFormat(){
+        return this.FLAG +
+                this.type +
+                this.num +
+                this.data +
+                this.crc +
+                this.FLAG;
+    }
+
     /* ------------------------------------------- Setters ------------------------------------------- */
 
     /**
