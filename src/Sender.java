@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 
 public class Sender {
 
@@ -19,7 +20,7 @@ public class Sender {
     /**
      * Constructeur
      */
-    public Sender(String machineName, int portNumber, String fileName, int protocole) {
+    private Sender(String machineName, int portNumber, String fileName, int protocole) {
         this.machineName = machineName;
         this.portNumber = portNumber;
         this.fileName = fileName;
@@ -29,7 +30,7 @@ public class Sender {
             int result = createSocket(machineName, portNumber, fileName, protocole);
 
             /* Here we tried to create socket but there was an error.  */
-            if(result == 0) {
+            if (result == 0) {
                 timeout += 1;
             }
         }
@@ -50,8 +51,8 @@ public class Sender {
 //                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
 //                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream())
 
-        ){
-            if (timeout == 0){
+        ) {
+            if (timeout == 0) {
                 // TODO : Create the frame
                 // TODO : Bitstuff the data
                 Trame trameToSend = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
@@ -74,7 +75,6 @@ public class Sender {
                 * */
 
 
-
                 // SENDER --> TrameProcessorSender --> RECEIVER
                 // RECEIVER--> TrameProcessorReceiver --> SENDER
                 // SENDER check le num pour que cest ok
@@ -83,12 +83,68 @@ public class Sender {
             }
 
             return 1; // Everything is OK
-        } catch (Exception e){
+        } catch (Exception e) {
             return 0; // An error occurred
         }
+    }
 
+    /**
+     * Create trames list from data
+     *
+     * @return ArrayList
+     */
+    private ArrayList<Trame> createtrames() throws FileNotFoundException {
 
+        ArrayList<Trame> trames = new ArrayList<>();
+        ArrayList<String> data = readFile(fileName);
 
+        // TODO: create trames list from binary data
+        // Devrait-on calculer CRC ici dans Trame?
+
+        return trames;
+    }
+
+    /**
+     * Read a file line by line and store data in array
+     *
+     * @param fileName String
+     * @return ArrayList of data
+     * @throws FileNotFoundException
+     */
+    private ArrayList<String> readFile(String fileName) throws FileNotFoundException {
+        ArrayList<String> data = new ArrayList<>();
+
+        CharacterConversion converter = new CharacterConversion();
+
+        BufferedReader in = new BufferedReader(new FileReader(fileName));
+        String line;
+
+        try {
+            while ((line = in.readLine()) != null) {
+                data.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
+
+    /**
+     * Convert trames elements to binary
+     *
+     * @param trames ArrayList
+     * @return ArrayList
+     */
+    private ArrayList<String> convertToBin(ArrayList<Trame> trames) {
+
+        ArrayList<String> binaryTrames = new ArrayList<>();
+
+        CharacterConversion converter = new CharacterConversion();
+
+        // TODO: convert trame from list to binary format
+
+        return binaryTrames;
     }
 
     /**
@@ -108,9 +164,9 @@ public class Sender {
 
         try {
 //            Sender sender = new Sender(Nom_machine, port, filename, protocole);
-            Sender sender = new Sender("127.0.0.1", 6969, "", 0);
+            Sender sender = new Sender("127.0.0.1", 6969, "test.txt", 0);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             System.err.println("There was a problem creating a sender object.");
             System.exit(0);

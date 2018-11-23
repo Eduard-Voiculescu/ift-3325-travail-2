@@ -100,5 +100,4 @@ public class Trame {
         return crc;
     }
 
-    // TODO: checksum (crc)
 }

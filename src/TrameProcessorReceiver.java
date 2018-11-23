@@ -23,6 +23,7 @@ public class TrameProcessorReceiver extends Thread {
 
             try {
                 Trame trame = (Trame) is.readObject();
+                System.out.println(trame.makeTrameFormat() + " RECEIVED");
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
