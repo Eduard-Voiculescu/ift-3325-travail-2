@@ -4,6 +4,7 @@ import java.net.*;
 public class Receiver {
 
     private final static String POLYNOME_GENERATEUR = "10001000000100001";
+
     /**
      * Roule receveur
      */
@@ -12,6 +13,16 @@ public class Receiver {
         int port = Integer.parseInt(args[0]);
 
         ServerSocket serverSocket = new ServerSocket(port);
+
+        try{
+
+            while(true) {
+                new TrameProcessor(serverSocket.accept()).start();
+            }
+
+        } finally {
+            serverSocket.close();
+        }
 
     }
 }
