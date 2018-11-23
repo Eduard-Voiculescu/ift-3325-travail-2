@@ -93,13 +93,16 @@ public class Sender {
      *
      * @return ArrayList
      */
-    private ArrayList<Trame> createtrames() throws FileNotFoundException {
+    private ArrayList<Trame> createTrames() throws FileNotFoundException {
 
         ArrayList<Trame> trames = new ArrayList<>();
+
         ArrayList<String> data = readFile(fileName);
 
-        // TODO: create trames list from binary data
-        // Devrait-on calculer CRC ici dans Trame?
+        // TODO: create trames from data and store in trames list
+        // TODO: bitstuff the data in trames list
+
+        // Devrait-on calculer CRC ici ou dans Trame?
 
         return trames;
     }
@@ -131,7 +134,7 @@ public class Sender {
     }
 
     /**
-     * Convert trames elements to binary
+     * Convert trames to binary
      *
      * @param trames ArrayList
      * @return ArrayList
