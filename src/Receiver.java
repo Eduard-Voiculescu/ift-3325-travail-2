@@ -10,14 +10,14 @@ public class Receiver {
      */
     public static void main(String[] args) throws IOException {
 
-        int port = Integer.parseInt(args[0]);
-
+//        int port = Integer.parseInt(args[0]);
+        int port = 6969;
         ServerSocket serverSocket = new ServerSocket(port);
 
         try{
 
             while(true) {
-                new TrameProcessorReceiver(serverSocket.accept()).start();
+//                new TrameProcessorReceiver(serverSocket.accept()).start();
             }
 
         } finally {

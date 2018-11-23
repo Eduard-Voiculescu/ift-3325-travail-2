@@ -7,6 +7,9 @@ public class Sender {
     private static int timeout = 0; // This value will not exceed 3 (for 3 seconds)
     private static int window = 7; // This is not specified so we set the window size at 7
 
+    /* Create objects to use. */
+    private static BitStuffing bitStuffing = new BitStuffing();
+
     /* Sender attributes */
     private String machineName;
     private int portNumber;
@@ -44,14 +47,16 @@ public class Sender {
                 Socket socket = new Socket(machineName, portNumber);
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
-                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream())
+//                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
+//                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream())
 
         ){
-            if (timeout > 0){
+            if (timeout == 0){
                 // TODO : Create the frame
                 // TODO : Bitstuff the data
-
+                Trame trameToSend = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
+                System.out.println(trameToSend.makeTrameFormat());
+                String trameBitToSend = bitStuffing.bitStuffingSender(trameToSend.makeTrameFormat());
 
                 /*
                 * Num -> 8 bits -> 255 -> 11111111 reserver pour RR
@@ -86,30 +91,24 @@ public class Sender {
 
     }
 
-
-
-
-
-
-
     /**
      * Roule emetteur
      */
     public static void main(String[] args) throws IOException {
 
-        if (args.length != 4) {
-            System.err.println("Mauvais nombre d'arguments.");
-            System.exit(0);
-        }
-
-        String Nom_machine = args[0];
-        int port = Integer.parseInt(args[1]);
-        String filename = args[2];
-        int protocole = Integer.parseInt(args[3]);
+//        if (args.length != 4) {
+//            System.err.println("Mauvais nombre d'arguments.");
+//            System.exit(0);
+//        }
+//
+//        String Nom_machine = args[0];
+//        int port = Integer.parseInt(args[1]);
+//        String filename = args[2];
+//        int protocole = Integer.parseInt(args[3]);
 
         try {
-
-            Sender sender = new Sender(Nom_machine, port, filename, protocole);
+//            Sender sender = new Sender(Nom_machine, port, filename, protocole);
+            Sender sender = new Sender("127.0.0.1", 6969, "", 0);
 
         } catch (Exception e){
             e.printStackTrace();
