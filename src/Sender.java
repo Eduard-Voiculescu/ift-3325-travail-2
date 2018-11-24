@@ -53,9 +53,7 @@ public class Sender implements Serializable{
 
         ) {
             Trame trame = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
-            String s = "toto";
-            os.writeObject(s);
-//            os.writeObject(trame);
+            os.writeObject(trame);
 //            os.flush();
 //            if (timeout == 0) {
 //                // TODO : Create the frame
