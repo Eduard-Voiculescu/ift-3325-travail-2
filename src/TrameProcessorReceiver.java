@@ -17,10 +17,8 @@ public class TrameProcessorReceiver extends Thread {
     public void run() {
 
         try {
-
-            ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
-
+            ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
             try {
                 Trame trame = (Trame) is.readObject();
                 System.out.println(trame.makeTrameFormat() + " RECEIVED");

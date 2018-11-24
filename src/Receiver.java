@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.*;
 
 public class Receiver {
@@ -17,7 +19,9 @@ public class Receiver {
         try{
 
             while(true) {
+
                 new TrameProcessorReceiver(serverSocket.accept()).start();
+
             }
 
         } finally {

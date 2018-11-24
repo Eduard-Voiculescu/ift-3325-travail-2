@@ -1,4 +1,6 @@
-public class Trame {
+import java.io.Serializable;
+
+public class Trame implements Serializable {
 
     private final String FLAG;
     private String type;
