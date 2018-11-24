@@ -17,13 +17,14 @@ public class TrameProcessorReceiver extends Thread {
     public void run() {
 
         try {
-
-            ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
+            System.out.println("coucou");
             ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
-
+            ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
             try {
-                Trame trame = (Trame) is.readObject();
-                System.out.println(trame.makeTrameFormat() + " RECEIVED");
+                String s = (String) is.readObject();
+//                Trame trame = (Trame) is.readObject();
+//                System.out.println(trame.makeTrameFormat() + " RECEIVED");
+                System.out.println(s);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }

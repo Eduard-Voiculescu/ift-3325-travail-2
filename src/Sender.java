@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 
-public class Sender {
+public class Sender implements Serializable{
 
     private final static String POLYNOME_GENERATEUR = "10001000000100001";
     private static int timeout = 0; // This value will not exceed 3 (for 3 seconds)
@@ -48,39 +48,44 @@ public class Sender {
                 Socket socket = new Socket(machineName, portNumber);
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-//                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
-//                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream())
+                ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
+                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
 
         ) {
-            if (timeout == 0) {
-                // TODO : Create the frame
-                // TODO : Bitstuff the data
-                Trame trameToSend = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
-                System.out.println(trameToSend.makeTrameFormat());
-                String trameBitToSend = bitStuffing.bitStuffingSender(trameToSend.makeTrameFormat());
-
-                /*
-                * Num -> 8 bits -> 255 -> 11111111 reserver pour RR
-                *                         00000000 reserver pour REJ
-                *                         et le reste cest pour les trames
-                * Creer la trame -> |  FLAG  |   Type   |   Num   |   Data   |   CRC   |  FLAG  |
-                *                   |  1  |   1   |   1   |   0..n   |   2   |  1  | -> 6 octets min (48 bits)
-                *    |  01111110  |    I, C, A, R, F or P   |   Num   |   Coucou toto   |   CRC   |  01111110  |
-                *
-                * Switch:
-                *   CASE  I, C, A, R, F or P
-                *
-                *
-                *
-                * */
-
-
-                // SENDER --> TrameProcessorSender --> RECEIVER
-                // RECEIVER--> TrameProcessorReceiver --> SENDER
-                // SENDER check le num pour que cest ok
-                //  SI ACK ok on fait rien
-                //  SINON RENVOYER LA TRAME
-            }
+            Trame trame = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
+            String s = "toto";
+            os.writeObject(s);
+//            os.writeObject(trame);
+//            os.flush();
+//            if (timeout == 0) {
+//                // TODO : Create the frame
+//                // TODO : Bitstuff the data
+//                Trame trameToSend = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
+//                System.out.println(trameToSend.makeTrameFormat());
+//                String trameBitToSend = bitStuffing.bitStuffingSender(trameToSend.makeTrameFormat());
+//
+//                /*
+//                * Num -> 8 bits -> 255 -> 11111111 reserver pour RR
+//                *                         00000000 reserver pour REJ
+//                *                         et le reste cest pour les trames
+//                * Creer la trame -> |  FLAG  |   Type   |   Num   |   Data   |   CRC   |  FLAG  |
+//                *                   |  1  |   1   |   1   |   0..n   |   2   |  1  | -> 6 octets min (48 bits)
+//                *    |  01111110  |    I, C, A, R, F or P   |   Num   |   Coucou toto   |   CRC   |  01111110  |
+//                *
+//                * Switch:
+//                *   CASE  I, C, A, R, F or P
+//                *
+//                *
+//                *
+//                * */
+//
+//
+//                // SENDER --> TrameProcessorSender --> RECEIVER
+//                // RECEIVER--> TrameProcessorReceiver --> SENDER
+//                // SENDER check le num pour que cest ok
+//                //  SI ACK ok on fait rien
+//                //  SINON RENVOYER LA TRAME
+//            }
 
             return 1; // Everything is OK
         } catch (Exception e) {
@@ -95,9 +100,20 @@ public class Sender {
      */
     private ArrayList<Trame> createTrames() throws FileNotFoundException {
 
-        ArrayList<Trame> trames = new ArrayList<>();
+        ArrayList<Trame> trames = new ArrayList<>(); // taille n
 
         ArrayList<String> data = readFile(fileName);
+
+
+        for(int i = 0; i < data.size(); i++) {
+            String type = "i";
+            String num = "";
+            String d = data.get(i);
+            String crc = "";
+
+            Trame trame = new Trame(type, num, d, crc);
+            trames.add(trame);
+        }
 
         // TODO: create trames from data and store in trames list
         // TODO: bitstuff the data in trames list
