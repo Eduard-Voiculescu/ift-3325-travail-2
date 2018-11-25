@@ -4,6 +4,7 @@ import java.net.Socket;
 public class TrameProcessorReceiver extends Thread {
 
     private Socket socket;
+    private String polynomeGen = "10001000000100001";
 
     /**
      * Constructeur
@@ -63,9 +64,8 @@ public class TrameProcessorReceiver extends Thread {
             try {
                 socket.close();
             } catch (IOException e) {
-                System.out.println("Echec de fermeture du socket");
+                System.out.println("Receiver : Echec de fermeture du socket");
             }
-            
         }
     }
 
@@ -76,13 +76,7 @@ public class TrameProcessorReceiver extends Thread {
      * @return boolean
      */
     private boolean isEndOfTransmission(String type) {
-        boolean isEnd = false;
-
-        CharacterConversion converter = new CharacterConversion();
-
-        if (converter.binaryToChar(type).equals("f")) isEnd = true;
-
-        return isEnd;
+        return new CharacterConversion().binaryToChar(type).equals("f");
     }
 
     /**
