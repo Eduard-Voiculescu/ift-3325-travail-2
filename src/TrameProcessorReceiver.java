@@ -90,6 +90,10 @@ public class TrameProcessorReceiver extends Thread {
 
         // TODO: check for errors in trame
 
+        /*
+        https://www.eit.lth.se/fileadmin/eit/courses/ets130/CRC.pdf
+         */
+
         return hasError;
     }
 }
