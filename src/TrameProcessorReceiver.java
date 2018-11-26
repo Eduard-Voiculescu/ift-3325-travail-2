@@ -86,14 +86,6 @@ public class TrameProcessorReceiver extends Thread {
      * @return boolean
      */
     private boolean hasError(Trame trame) {
-        boolean hasError = false;
-
-        // TODO: check for errors in trame
-
-        /*
-        https://www.eit.lth.se/fileadmin/eit/courses/ets130/CRC.pdf
-         */
-
-        return hasError;
+        return (Integer.parseInt(trame.getCrc()) ^ Integer.parseInt(polynomeGen)) != 0;
     }
 }
