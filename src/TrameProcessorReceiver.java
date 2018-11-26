@@ -6,6 +6,8 @@ public class TrameProcessorReceiver extends Thread {
     private Socket socket;
     private String polynomeGen = "10001000000100001";
 
+    private CheckSum checkSum = new CheckSum();
+
     /**
      * Constructeur
      *
@@ -34,6 +36,7 @@ public class TrameProcessorReceiver extends Thread {
                      */
 
                     Trame trame = (Trame) is.readObject();
+                    System.out.println(trame.makeTrameFormat());
 
                     if (isEndOfTransmission(trame.getType())) {
 
@@ -53,8 +56,9 @@ public class TrameProcessorReceiver extends Thread {
                 }
 
 
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            } catch (ClassNotFoundException | EOFException e) {
+                if (e instanceof ClassNotFoundException)
+                    e.printStackTrace();
             }
 
         } catch (IOException e) {
@@ -86,14 +90,6 @@ public class TrameProcessorReceiver extends Thread {
      * @return boolean
      */
     private boolean hasError(Trame trame) {
-        boolean hasError = false;
-
-        // TODO: check for errors in trame
-
-        /*
-        https://www.eit.lth.se/fileadmin/eit/courses/ets130/CRC.pdf
-         */
-
-        return hasError;
+        return checkSum.validateCRC(polynomeGen, trame.getCrc());
     }
 }

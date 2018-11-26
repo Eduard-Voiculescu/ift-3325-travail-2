@@ -10,6 +10,7 @@ public class Sender implements Serializable{
 
     /* Create objects to use. */
     private static BitStuffing bitStuffing = new BitStuffing();
+    private static CharacterConversion characterConversion = new CharacterConversion();
 
     /* Sender attributes */
     private String machineName;
@@ -53,6 +54,12 @@ public class Sender implements Serializable{
 
         ) {
             Trame trame = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
+            // createTrames();
+            trame.setType(characterConversion.charToBinary(trame.getType()));
+            // readline des donnes et les mettre en bit
+            // jai calculer le CRC
+            // blablabla
+            // Trame = une grosse sequence de bit
             os.writeObject(trame);
 //            os.flush();
 //            if (timeout == 0) {
@@ -85,9 +92,9 @@ public class Sender implements Serializable{
 //                //  SINON RENVOYER LA TRAME
 //            }
 
-            return 1; // Everything is OK
+            return 0; // Everything is OK
         } catch (Exception e) {
-            return 0; // An error occurred
+            return 1; // An error occurred
         }
     }
 
@@ -116,6 +123,7 @@ public class Sender implements Serializable{
         // TODO: create trames from data and store in trames list
         // TODO: bitstuff the data in trames list
 
+        convertToBin(trames);
         // Devrait-on calculer CRC ici ou dans Trame?
 
         return trames;
