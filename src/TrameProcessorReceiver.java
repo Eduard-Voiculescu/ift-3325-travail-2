@@ -86,6 +86,6 @@ public class TrameProcessorReceiver extends Thread {
      * @return boolean
      */
     private boolean hasError(Trame trame) {
-        return (Integer.parseInt(trame.getCrc()) ^ Integer.parseInt(polynomeGen)) != 0;
+        return (Long.parseLong(trame.getCrc()) ^ Long.parseLong(polynomeGen)) != 0;
     }
 }
