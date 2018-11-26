@@ -163,12 +163,12 @@ public class CheckSumTest {
         Assert.assertFalse(result);
         System.out.println("----- JUnit validateCRCTest() -> Test polynomeGenerateur vide finished without error. -----");
 
-        /* Test data vide */
-        polynome = "1001";
-        result = checkSum.validateCRC("",polynome);
+        /* Test data plus petit que polynomeGenerateur */
+        polynome = "10001000000100001";
+        result = checkSum.validateCRC("1000100000010000",polynome);
 
         Assert.assertFalse(result);
-        System.out.println("----- JUnit validateCRCTest() -> Test data vide finished without error. -----");
+        System.out.println("----- JUnit validateCRCTest() -> Test data plus petit que polynomeGenerateur finished without error. -----");
 
     }
 

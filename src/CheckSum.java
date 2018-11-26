@@ -41,9 +41,8 @@ public class CheckSum {
             return new StringBuilder("La taille du polynôme Générateur est de zéro.");
         }
 
-        if (data.length() == polynomeGenerateur.length() - 1){
-            System.err.println("La taille du data est de zéro.");
-            return new StringBuilder("La taille du data est de zéro.");
+        if (data.length() < polynomeGenerateur.length()){
+            return new StringBuilder(data);
         }
 
         int ctr = 0;
@@ -163,6 +162,8 @@ public class CheckSum {
         System.out.println(a);
 
         System.out.println(cs.validateCRC("","1001"));
+
+        System.out.println(cs.XORDivision("100010000001000", "10001000000100001").toString());
     }
 
 }
