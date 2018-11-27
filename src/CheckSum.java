@@ -37,7 +37,7 @@ public class CheckSum {
     public StringBuilder XORDivision(String data, String polynomeGenerateur){
 
         if (polynomeGenerateur.length() == 0){
-            System.err.println("La taille du polynôme Générateur est de zéro.");
+            // System.err.println("La taille du polynôme Générateur est de zéro."); // For testing purposes.
             return new StringBuilder("La taille du polynôme Générateur est de zéro.");
         }
 
@@ -84,7 +84,7 @@ public class CheckSum {
                     * allons faire le XOR avec 0..0 et on append un 0 au result.
                     * Si c'est un 1, on doit aussi vérifier que le polynomeGenerateur est également
                     * un 1 et on append un 1 au result puisque nous soustraions 1 * notre polynomeGenerateur.
-                    * */
+                    */
                     if (current.charAt(i) == '0'){
                         result.append("0");
                         // On modifie le polynôme pour la comparaison

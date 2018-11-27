@@ -4,9 +4,10 @@ import java.net.Socket;
 public class TrameProcessorReceiver extends Thread {
 
     private Socket socket;
-    private String polynomeGen = "10001000000100001";
+    private final String POLYNOME_GENERATEUR= "10001000000100001";
 
     private CheckSum checkSum = new CheckSum();
+    private BitStuffing bitStuffingReceiver = new BitStuffing();
 
     /**
      * Constructeur
@@ -37,6 +38,13 @@ public class TrameProcessorReceiver extends Thread {
 
                     Trame trame = (Trame) is.readObject();
                     System.out.println(trame.makeTrameFormat());
+                    if(bitStuffingReceiver.bitStuffingReceiver(trame.getType()).equals("C")){
+                        System.out.println("Received a connection attempt ...");
+                        System.out.println("Attempting to accept connection request ...");
+                        Trame connectionAccepted = new Trame("A", "00000000", "", POLYNOME_GENERATEUR);
+                        System.out.println("Sending accepting connection request trame ---> " + connectionAccepted.makeTrameFormat());
+                        os.writeObject(connectionAccepted);
+                    }
 
                     if (isEndOfTransmission(trame.getType())) {
 
@@ -90,6 +98,6 @@ public class TrameProcessorReceiver extends Thread {
      * @return boolean
      */
     private boolean hasError(Trame trame) {
-        return checkSum.validateCRC(polynomeGen, trame.getCrc());
+        return checkSum.validateCRC(POLYNOME_GENERATEUR, trame.getCrc());
     }
 }

@@ -7,7 +7,6 @@ public class Trame implements Serializable {
     private String num;
     private String data;
     private String crc;
-//    private boolean dead;
 
     /**
      * Constructeur

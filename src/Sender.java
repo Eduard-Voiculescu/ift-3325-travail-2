@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Sender implements Serializable{
@@ -11,34 +12,45 @@ public class Sender implements Serializable{
     /* Create objects to use. */
     private static BitStuffing bitStuffing = new BitStuffing();
     private static CharacterConversion characterConversion = new CharacterConversion();
+    private static CheckSum checkSum = new CheckSum();
 
     /* Sender attributes */
     private String machineName;
     private int portNumber;
     private String fileName;
-    private int protocole;
+    private String protocole;
+
+    /* Lists pour les trames. */
+    private ArrayList<Trame> trames;
+
+    /* Variables */
+    boolean connected = false;
+    int numberOfTrameSent = 0;
+    int currentPositionTrame = 0;
+    int currentPositionWindow = 0;
 
     /**
      * Constructeur
      */
-    private Sender(String machineName, int portNumber, String fileName, int protocole) {
+    private Sender(String machineName, int portNumber, String fileName, String protocole) {
         this.machineName = machineName;
         this.portNumber = portNumber;
         this.fileName = fileName;
         this.protocole = protocole;
 
-        while (timeout < 3) {
-            int result = createSocket(machineName, portNumber, fileName, protocole);
-
-            /* Here we tried to create socket but there was an error.  */
-            if (result == 0) {
-                timeout += 1;
-            }
-        }
+        int result = createSocket(machineName, portNumber, fileName, protocole);
+//        while (timeout < 3) {
+//            int result = createSocket(machineName, portNumber, fileName, protocole);
+//
+//            /* Here we tried to create socket but there was an error.  */
+//            if (result == 0) {
+//                timeout += 1;
+//            }
+//        }
 
     }
 
-    private int createSocket(String machineName, int portNumber, String fileName, int protocole) {
+    private int createSocket(String machineName, int portNumber, String fileName, String protocole) {
 
         /*
         * https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
@@ -50,47 +62,47 @@ public class Sender implements Serializable{
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
                 ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
-                ObjectInputStream is = new ObjectInputStream(socket.getInputStream());
+                ObjectInputStream is = new ObjectInputStream(socket.getInputStream())
 
         ) {
-            Trame trame = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
-            // createTrames();
-            trame.setType(characterConversion.charToBinary(trame.getType()));
-            // readline des donnes et les mettre en bit
-            // jai calculer le CRC
-            // blablabla
-            // Trame = une grosse sequence de bit
-            os.writeObject(trame);
-//            os.flush();
-//            if (timeout == 0) {
-//                // TODO : Create the frame
-//                // TODO : Bitstuff the data
-//                Trame trameToSend = new Trame("P", "00000000", "", POLYNOME_GENERATEUR);
-//                System.out.println(trameToSend.makeTrameFormat());
-//                String trameBitToSend = bitStuffing.bitStuffingSender(trameToSend.makeTrameFormat());
-//
-//                /*
-//                * Num -> 8 bits -> 255 -> 11111111 reserver pour RR
-//                *                         00000000 reserver pour REJ
-//                *                         et le reste cest pour les trames
-//                * Creer la trame -> |  FLAG  |   Type   |   Num   |   Data   |   CRC   |  FLAG  |
-//                *                   |  1  |   1   |   1   |   0..n   |   2   |  1  | -> 6 octets min (48 bits)
-//                *    |  01111110  |    I, C, A, R, F or P   |   Num   |   Coucou toto   |   CRC   |  01111110  |
-//                *
-//                * Switch:
-//                *   CASE  I, C, A, R, F or P
-//                *
-//                *
-//                *
-//                * */
-//
-//
-//                // SENDER --> TrameProcessorSender --> RECEIVER
-//                // RECEIVER--> TrameProcessorReceiver --> SENDER
-//                // SENDER check le num pour que cest ok
-//                //  SI ACK ok on fait rien
-//                //  SINON RENVOYER LA TRAME
-//            }
+            if (timeout > 0){
+                Trame firstTrame = new Trame("P", decimalToBinary(0), "", POLYNOME_GENERATEUR);
+            }
+
+            /* We create all the Trame objects and put them in an ArrayList<Trames> */
+            trames = createTrames(fileName);
+
+            while (numberOfTrameSent < trames.size()){
+                System.out.println("--- Trame confirmed sent -> " + numberOfTrameSent + " ---");
+
+                /* Entrer ici pour la première fois. Envoyer la trame de demande de connexion. */
+                if (!connected){
+                    System.out.println("Attempting to connect ...");
+                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes.
+                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), "00000000", "", POLYNOME_GENERATEUR);
+                    System.out.println("Sending connectionTrame to receiver ---> "
+                            + bitStuffing.bitStuffingSender(connectionTrame.makeTrameFormat()));
+                    os.writeObject(connectionTrame); // Send trame to Receiver
+                    // Imprimer la reponse du receveur.
+                    Trame answer = (Trame) is.readObject();
+                    System.out.println("Trame received by Receiver ... " + answer.makeTrameFormat());
+
+                    /* Verification if appropriate Trame reecived. */
+                    if (characterConversion.binaryToChar(answer.getType()).equals("A")){
+                        System.out.println("Connection was accepted by Receiver ...");
+                        System.out.println("CONNECTION ESTABLISHED ... ");
+                        timeout = 0;
+                        connected = true;
+                        break;
+                    }
+
+
+
+                }
+
+
+            }
+
 
             return 0; // Everything is OK
         } catch (Exception e) {
@@ -103,27 +115,30 @@ public class Sender implements Serializable{
      *
      * @return ArrayList
      */
-    private ArrayList<Trame> createTrames() throws FileNotFoundException {
+    private ArrayList<Trame> createTrames(String fileName) throws IOException {
 
         ArrayList<Trame> trames = new ArrayList<>(); // taille n
 
+        /* This list contains all the information from a txt file.
+         * The format is as such that the line number is respectfully
+         * the ArrayList<String> data.
+         */
         ArrayList<String> data = readFile(fileName);
 
-
         for(int i = 0; i < data.size(); i++) {
-            String type = "i";
-            String num = "";
-            String d = data.get(i);
-            String crc = "";
 
-            Trame trame = new Trame(type, num, d, crc);
+            /* Convert all the data in binary format. */
+            data.set(i,characterConversion.charToBinary(data.get(i)));
+//            String crc = checkSum.checkSumData();
+
+
+            Trame trame = new Trame(characterConversion.charToBinary("I"),
+                    this.decimalToBinary(i%8),
+                    data.get(i),
+                    "");
             trames.add(trame);
         }
 
-        // TODO: create trames from data and store in trames list
-        // TODO: bitstuff the data in trames list
-
-        convertToBin(trames);
         // Devrait-on calculer CRC ici ou dans Trame?
 
         return trames;
@@ -134,25 +149,24 @@ public class Sender implements Serializable{
      *
      * @param fileName String
      * @return ArrayList of data
-     * @throws FileNotFoundException
+     * @throws IOException
      */
-    private ArrayList<String> readFile(String fileName) throws FileNotFoundException {
-        ArrayList<String> data = new ArrayList<>();
-
-        CharacterConversion converter = new CharacterConversion();
-
-        BufferedReader in = new BufferedReader(new FileReader(fileName));
-        String line;
-
+    private ArrayList<String> readFile(String fileName) throws IOException {
+        ArrayList<String> dataTable = new ArrayList<>();
         try {
-            while ((line = in.readLine()) != null) {
-                data.add(line);
+            File file = new File(fileName);
+            String path = file.getAbsolutePath();
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                dataTable.add(line);
             }
+            br.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return data;
+        return dataTable;
     }
 
     /**
@@ -172,6 +186,11 @@ public class Sender implements Serializable{
         return binaryTrames;
     }
 
+    /* Convert decimal value to string. */
+    private String decimalToBinary(int decimal){
+        return Integer.toBinaryString(decimal);
+    }
+
     /**
      * Roule emetteur
      */
@@ -185,11 +204,16 @@ public class Sender implements Serializable{
 //        String Nom_machine = args[0];
 //        int port = Integer.parseInt(args[1]);
 //        String filename = args[2];
-//        int protocole = Integer.parseInt(args[3]);
+//        String protocole = args[3];
+//        if(!protocole.equals("0")){
+//            System.out.println("The protocole specified is not Go-Back-N.");
+//            System.out.println("The program will now exit.");
+//            System.exit(0);
+//        }
 
         try {
 //            Sender sender = new Sender(Nom_machine, port, filename, protocole);
-            Sender sender = new Sender("127.0.0.1", 6969, "test.txt", 0);
+            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
 
         } catch (Exception e) {
             e.printStackTrace();
