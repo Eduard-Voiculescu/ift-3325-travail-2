@@ -43,4 +43,29 @@ public class CharacterConversion {
         return result.toString();
     }
 
+    /* Code adapted from https://stackoverflow.com/questions/18348745/decimal-to-binary-8-bits-only-using-append */
+    public String convertDecimalToBinary(int no){ // 0 ... 7
+
+        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder1 = new StringBuilder();
+        String padding;
+        int restant;
+
+        while (no != 0){
+            restant = no % 2;
+            stringBuilder.append(restant);
+            no = no / 2;
+        }
+        padding = stringBuilder.reverse().toString();
+        int length = padding.length();
+        if(length < 8){
+            while (8 - length>0){
+                stringBuilder1.append("0");
+                length++;
+            }
+        }
+        return stringBuilder1.toString() + padding;
+    }
+
+
 }

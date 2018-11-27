@@ -7,16 +7,18 @@ public class Trame implements Serializable {
     private String num;
     private String data;
     private String crc;
+    private int indexInArrayList;
 
     /**
      * Constructeur
      */
-    public Trame(String type, String num, String data, String crc) {
+    public Trame(String type, String num, String data, String crc, int indexInArrayList) {
         this.FLAG = "01111110";
         this.type = type;
         this.num = num;
         this.data = data;
         this.crc = crc;
+        this.indexInArrayList = indexInArrayList;
     }
 
 
@@ -67,6 +69,13 @@ public class Trame implements Serializable {
     }
 
 
+    /**
+     * @param indexInArrayList : sets the index in array list
+     */
+    public void setIndexInArrayList(int indexInArrayList) {
+        this.indexInArrayList = indexInArrayList;
+    }
+
     /* ------------------------------------------- Getters ------------------------------------------- */
 
     /**
@@ -101,4 +110,10 @@ public class Trame implements Serializable {
         return crc;
     }
 
+    /**
+     * @return : returns the index of the trame in the array list.
+     */
+    public int getIndexInArrayList() {
+        return indexInArrayList;
+    }
 }

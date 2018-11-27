@@ -41,7 +41,7 @@ public class TrameProcessorReceiver extends Thread {
                     if(bitStuffingReceiver.bitStuffingReceiver(trame.getType()).equals("C")){
                         System.out.println("Received a connection attempt ...");
                         System.out.println("Attempting to accept connection request ...");
-                        Trame connectionAccepted = new Trame("A", "00000000", "", POLYNOME_GENERATEUR);
+                        Trame connectionAccepted = new Trame("A", "00000000", "", POLYNOME_GENERATEUR, 0);
                         System.out.println("Sending accepting connection request trame ---> " + connectionAccepted.makeTrameFormat());
                         os.writeObject(connectionAccepted);
                     }

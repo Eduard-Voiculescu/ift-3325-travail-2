@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CheckSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CharacterConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterConversion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Trame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trame.java" afterDir="false" />
@@ -46,12 +47,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="java" value="18533" />
+          <entry key="java" value="21224" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="18533" />
+          <entry key="JAVA" value="21224" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
@@ -86,14 +87,20 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5063966">
+    <splitter split-orientation="horizontal" split-proportion="0.5956221">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Trame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+                <state relative-caret-position="340">
+                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+                  <folding>
+                    <element signature="e#2642#2643#0" expanded="true" />
+                    <element signature="e#2698#2699#0" expanded="true" />
+                    <element signature="e#2542#2543#0" expanded="true" />
+                    <element signature="e#2581#2582#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -110,12 +117,12 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Sender.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="603">
-                  <caret line="104" selection-start-line="104" selection-end-line="104" />
+                <state relative-caret-position="393">
+                  <caret line="110" column="85" selection-start-line="110" selection-start-column="85" selection-end-line="110" selection-end-column="85" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#6353#6354#0" expanded="true" />
-                    <element signature="e#6407#6408#0" expanded="true" />
+                    <element signature="e#7803#7804#0" expanded="true" />
+                    <element signature="e#7857#7858#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -133,8 +140,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CharacterConversion.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+                <state relative-caret-position="391">
+                  <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -142,8 +149,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/TrameProcessorReceiver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+                <state relative-caret-position="360">
+                  <caret line="53" column="28" lean-forward="true" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#397#398#0" expanded="true" />
@@ -171,8 +178,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Lorem.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+                <state>
+                  <caret column="74" lean-forward="true" selection-end-column="74" />
                 </state>
               </provider>
             </entry>
@@ -180,8 +187,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Receiver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="258">
-                  <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+                <state relative-caret-position="15">
+                  <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -210,8 +217,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/CharacterConversionTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-180">
-                  <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+                <state relative-caret-position="177">
+                  <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -266,14 +273,14 @@
         <option value="$PROJECT_DIR$/Test/TestBitStuffing.java" />
         <option value="$PROJECT_DIR$/Test/TestBitStuffingTest.java" />
         <option value="$PROJECT_DIR$/src/TrameProcessor.java" />
-        <option value="$PROJECT_DIR$/src/CharacterConversion.java" />
-        <option value="$PROJECT_DIR$/Test/CharacterConversionTest.java" />
         <option value="$PROJECT_DIR$/Test/CheckSumTest.java" />
-        <option value="$PROJECT_DIR$/src/Trame.java" />
         <option value="$PROJECT_DIR$/src/CheckSum.java" />
         <option value="$PROJECT_DIR$/src/TrameProcessorReceiver.java" />
-        <option value="$PROJECT_DIR$/src/Sender.java" />
+        <option value="$PROJECT_DIR$/src/Trame.java" />
+        <option value="$PROJECT_DIR$/Test/CharacterConversionTest.java" />
+        <option value="$PROJECT_DIR$/src/CharacterConversion.java" />
         <option value="$PROJECT_DIR$/src/Receiver.java" />
+        <option value="$PROJECT_DIR$/src/Sender.java" />
       </list>
     </option>
   </component>
@@ -328,6 +335,11 @@
               <item name="ift-3325-travail-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ift_3325_travail_2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ift-3325-travail-2" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -340,7 +352,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543281482547" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543293826811" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -374,8 +386,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Sender">
-    <configuration name="CheckSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CheckSum" />
+    <configuration name="CharacterConversion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CharacterConversion" />
       <module name="ift-3325-travail-2" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -384,6 +396,7 @@
     <configuration name="Receiver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Receiver" />
       <module name="ift-3325-travail-2" />
+      <option name="PROGRAM_PARAMETERS" value="6969" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -395,10 +408,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CheckSumTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CharacterConversionTest.testBinaryToCharEqualsCharToBinary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ift-3325-travail-2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CheckSumTest" />
+      <option name="MAIN_CLASS_NAME" value="CharacterConversionTest" />
+      <option name="METHOD_NAME" value="testBinaryToCharEqualsCharToBinary" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -414,19 +429,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.CheckSum" />
-      <item itemvalue="JUnit.CheckSumTest" />
-      <item itemvalue="JUnit.CheckSumTest.validateCRCTest" />
       <item itemvalue="Application.Receiver" />
       <item itemvalue="Application.Sender" />
+      <item itemvalue="JUnit.CheckSumTest.validateCRCTest" />
+      <item itemvalue="JUnit.CharacterConversionTest.testBinaryToCharEqualsCharToBinary" />
+      <item itemvalue="Application.CharacterConversion" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Sender" />
         <item itemvalue="Application.Receiver" />
+        <item itemvalue="Application.CharacterConversion" />
+        <item itemvalue="JUnit.CharacterConversionTest.testBinaryToCharEqualsCharToBinary" />
         <item itemvalue="JUnit.CheckSumTest.validateCRCTest" />
-        <item itemvalue="Application.CheckSum" />
-        <item itemvalue="JUnit.CheckSumTest" />
       </list>
     </recent_temporary>
   </component>
@@ -443,20 +458,11 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="64337000" />
+      <workItem from="1542855038013" duration="72267000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CheckSumTest - 2018.11.26 at 01h 52m 54s.xml">
-      <configuration name="CheckSumTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckSumTest - 2018.11.26 at 01h 53m 57s.xml">
-      <configuration name="CheckSumTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CheckSumTest - 2018.11.26 at 01h 54m 19s.xml">
-      <configuration name="CheckSumTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CheckSumTest - 2018.11.26 at 02h 06m 23s.xml">
       <configuration name="CheckSumTest" configurationId="JUnit" />
     </history-entry>
@@ -478,9 +484,18 @@
     <history-entry file="CheckSumTest_validateCRCTest - 2018.11.26 at 02h 12m 37s.xml">
       <configuration name="CheckSumTest.validateCRCTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="CharacterConversionTest_testBinaryToCharEqualsCharToBinary - 2018.11.26 at 23h 07m 16s.xml">
+      <configuration name="CharacterConversionTest.testBinaryToCharEqualsCharToBinary" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CharacterConversionTest_testBinaryToCharEqualsCharToBinary - 2018.11.26 at 23h 07m 36s.xml">
+      <configuration name="CharacterConversionTest.testBinaryToCharEqualsCharToBinary" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CharacterConversionTest_testBinaryToCharEqualsCharToBinary - 2018.11.26 at 23h 07m 46s.xml">
+      <configuration name="CharacterConversionTest.testBinaryToCharEqualsCharToBinary" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74464000" />
+    <option name="totallyTimeSpent" value="82394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -495,7 +510,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985955" weight="0.13965885" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985955" visible="true" weight="0.07462686" />
       <window_info id="Structure" order="1" sideWeight="0.5014045" side_tool="true" weight="0.13965885" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -504,8 +519,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40238613" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32104123" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38177875" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22451194" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27006507" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
@@ -536,21 +551,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sender.java</url>
-          <line>215</line>
+          <line>254</line>
           <properties />
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Receiver.java</url>
-          <line>17</line>
-          <properties />
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sender.java</url>
           <line>79</line>
           <properties />
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Receiver.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sender.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sender.java</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -717,16 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/CharacterConversionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -744,24 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Trame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lorem.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -786,17 +789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CharacterConversion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TrameProcessorReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="360">
+          <caret line="53" column="28" lean-forward="true" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#397#398#0" expanded="true" />
@@ -807,22 +803,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sender.java">
+    <entry file="file://$PROJECT_DIR$/src/Trame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="340">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#2642#2643#0" expanded="true" />
+            <element signature="e#2698#2699#0" expanded="true" />
+            <element signature="e#2542#2543#0" expanded="true" />
+            <element signature="e#2581#2582#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/CharacterConversionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6353#6354#0" expanded="true" />
-            <element signature="e#6407#6408#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lorem.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="74" lean-forward="true" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CharacterConversion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Receiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+        <state relative-caret-position="15">
+          <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="110" column="85" selection-start-line="110" selection-start-column="85" selection-end-line="110" selection-end-column="85" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7803#7804#0" expanded="true" />
+            <element signature="e#7857#7858#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
