@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterConversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Trame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TrameProcessorReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrameProcessorReceiver.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,12 +39,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="java" value="21224" />
+          <entry key="java" value="21225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="21224" />
+          <entry key="JAVA" value="21225" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
@@ -87,7 +79,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5956221">
+    <splitter split-orientation="horizontal" split-proportion="0.48654646">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -117,8 +109,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Sender.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="110" column="85" selection-start-line="110" selection-start-column="85" selection-end-line="110" selection-end-column="85" />
+                <state relative-caret-position="412">
+                  <caret line="131" column="59" selection-start-line="131" selection-start-column="59" selection-end-line="131" selection-end-column="59" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#7803#7804#0" expanded="true" />
@@ -187,8 +179,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Receiver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
+                <state relative-caret-position="382">
+                  <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -352,7 +344,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543293826811" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543294419794" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -458,7 +450,7 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="72267000" />
+      <workItem from="1542855038013" duration="72631000" />
     </task>
     <servers />
   </component>
@@ -495,7 +487,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82394000" />
+    <option name="totallyTimeSpent" value="82758000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,9 +500,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985955" visible="true" weight="0.07462686" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4985955" weight="0.07462686" />
       <window_info id="Structure" order="1" sideWeight="0.5014045" side_tool="true" weight="0.13965885" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -519,8 +510,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40238613" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22451194" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.27006507" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.47830802" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.43275487" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
@@ -551,7 +542,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sender.java</url>
-          <line>254</line>
+          <line>255</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
@@ -575,9 +566,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sender.java</url>
-          <line>131</line>
+          <line>132</line>
           <properties />
           <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Receiver.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="61" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -840,22 +837,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Receiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="60" column="37" selection-start-line="60" selection-start-column="37" selection-end-line="60" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="110" column="85" selection-start-line="110" selection-start-column="85" selection-end-line="110" selection-end-column="85" />
+        <state relative-caret-position="412">
+          <caret line="131" column="59" selection-start-line="131" selection-start-column="59" selection-end-line="131" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7803#7804#0" expanded="true" />
             <element signature="e#7857#7858#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Receiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="54" column="37" lean-forward="true" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
         </state>
       </provider>
     </entry>

@@ -85,7 +85,7 @@ public class Sender implements Serializable{
                 /* Entrer ici pour la première fois. Envoyer la trame de demande de connexion. */
                 if (!connected){
                     System.out.println("Attempting to connect ...");
-                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes.
+//                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes.
                     Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(0), "", POLYNOME_GENERATEUR, 0);
                     System.out.println("Sending connectionTrame to receiver ---> "
                             + bitStuffing.bitStuffingSender(connectionTrame.makeTrameFormat()));
@@ -117,7 +117,7 @@ public class Sender implements Serializable{
                         * On transforme toute les données en bits. Data est déjà fait lorsque nous avons créer notre ArrayList<Trame>.
                         * Nous allons egalement bitstuff toute les donnees pour que le tout soit ok.
                         */
-                        trameToSend.setType(bitStuffing.bitStuffingSender(characterConversion.charToBinary(trameToSend.getType())));
+                        trameToSend.setType(bitStuffing.bitStuffingSender(trameToSend.getType()));
                         trameToSend.setNum(bitStuffing.bitStuffingSender(characterConversion.convertDecimalToBinary(Integer.parseInt(trameToSend.getNum()))));
                         trameToSend.setData(bitStuffing.bitStuffingSender(trameToSend.getData()));
                         trameToSend.setCrc(bitStuffing.bitStuffingSender(POLYNOME_GENERATEUR)); // TODO : Change this to calculate CRC.
@@ -128,6 +128,7 @@ public class Sender implements Serializable{
                         this.delimiter();
                         System.out.println();
                         os.writeObject(trameToSend); // Send Trame to Receiver
+                        Trame answer = (Trame) is.readObject();
                     }
                     break;
 
