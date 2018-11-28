@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class Sender implements Serializable{
 
@@ -12,6 +13,7 @@ public class Sender implements Serializable{
     private static BitStuffing bitStuffing = new BitStuffing();
     private static CharacterConversion characterConversion = new CharacterConversion();
     private static CheckSum checkSum = new CheckSum();
+    private static ErrorTesting errorTesting = new ErrorTesting();
 
     /* Sender attributes */
     private String machineName;
@@ -28,6 +30,11 @@ public class Sender implements Serializable{
     int numberOfTrameConfirmed = 0;
     int currentPositionTrame = 0;
     int currentPositionWindow = 0;
+    boolean once;
+    ArrayList<Integer> tramesDestroyed = new ArrayList<Integer>();
+    ListIterator<Integer> listIterator = tramesDestroyed.listIterator();
+    int frameDestroyed = -1;
+    int count = 0;
 
     private boolean send = true;
 
@@ -77,7 +84,7 @@ public class Sender implements Serializable{
 
             if (timeout > 0){
                 System.out.println("CONNECTION TIMEOUT ...");
-                Trame connectionTimedOut = new Trame("P", characterConversion.convertDecimalToBinary(0), "", POLYNOME_GENERATEUR, 0);
+                Trame connectionTimedOut = new Trame("P", characterConversion.convertDecimalToBinary(0), "", POLYNOME_GENERATEUR, 255);
                 System.out.println("Trame to send to Receiver ... " + connectionTimedOut.prettyPrint());
                 System.out.println("Sending connectionTimedOut to receiver ---> " + connectionTimedOut.makeTrameFormat());
                 os.writeObject(connectionTimedOut);
@@ -93,7 +100,7 @@ public class Sender implements Serializable{
                 if (!connected){
                     System.out.println("Attempting to connect ...");
 //                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
-                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(255), "", "", 0);
+                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(255), "", "", 255);
                     connectionTrame.setCrc(checkSum.checkSumData(connectionTrame.getType() + connectionTrame.getNum() + connectionTrame.getData(), POLYNOME_GENERATEUR));
                     System.out.println("Trame to send to Receiver ... " + connectionTrame.prettyPrint());
                     System.out.println("Sending connectionTrame to receiver ---> " + connectionTrame.makeTrameFormat());
@@ -114,14 +121,50 @@ public class Sender implements Serializable{
                     }
 
                 } else { // we are now connected
+//                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
                     System.out.println("Trame confirmed sent -> " + numberOfTrameConfirmed);
                     /* Because our window size is of 7 we have to do another while loop. Complexity-wise could be done in a better. */
                     while (currentPositionWindow < window && currentPositionTrame < trames.size() && send) {
+
+                        Trame trameToSend = trames.get(currentPositionTrame);
+                        /* Uncomment this to destroy paquet. */
+                        if(!once){
+                            if(errorTesting.destroyTrame(trameToSend.getIndexInArrayList(), trameToSend) != -1) {
+                                frameDestroyed = trameToSend.getIndexInArrayList();
+                                tramesDestroyed.add(frameDestroyed);
+                            }
+                            once = true;
+//                            count++;
+                        }
+                        /* Plusieurs trames */
+//                        if(!once || count != 2){
+//                            if(errorTesting.destroyTrame(trameToSend.getIndexInArrayList(), trameToSend) != -1) {
+//                                frameDestroyed = trameToSend.getIndexInArrayList();
+//                                tramesDestroyed.add(frameDestroyed);
+//                            }
+//                            once = true;
+//                            count++;
+//                        }
+
+
                         this.delimiter();
                         System.out.println("Window size left before sending Trame : " + Integer.toString(window - currentPositionWindow));
                         System.out.println("SENDING Trame Information ... ");
-                        Trame trameToSend = trames.get(currentPositionTrame);
                         System.out.println("SENDING Trame number ---> " + Integer.toString(trameToSend.getIndexInArrayList()));
+
+                        if(trameToSend.getIndexInArrayList() == frameDestroyed){
+                            System.out.println();
+                            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                            System.out.println("A trame has been destroyed. Specifically trame number ::: " + trameToSend.getIndexInArrayList());
+                            System.out.println("We will have to resend the destroyed trame.");
+                            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                            System.out.println();
+                            currentPositionWindow++;
+                            currentPositionTrame++;
+                            continue;
+//                            os.writeObject(trameToSend);
+                        }
+
                         /*
                         * On transforme toute les données en bits. Data est déjà fait lorsque nous avons créer notre ArrayList<Trame>.
                         * Nous allons egalement bitstuff toute les donnees pour que le tout soit ok.
@@ -141,9 +184,59 @@ public class Sender implements Serializable{
                         this.delimiter();
                         System.out.println();
 
+                        /*
+                         * Uncomment this to force a bit flip on the 00000010 trame and it does it once.
+                         * We have tested if a bit is flipped in the type, num or data
+                         */
+//                        if(!once){
+//                            // this is a bitshift in in the type
+//                            trameToSend.setCrc(errorTesting.bitShift(12, trameToSend.getCrc()));
+//                            once = true;
+//                            // this is a bitshift in in the num
+//                            trameToSend.setCrc(errorTesting.bitShift(18, trameToSend.getCrc()));
+//                            once = true;
+//                            // this is a bitshift in in the data
+//                            trameToSend.setCrc(errorTesting.bitShift(25, trameToSend.getCrc()));
+//                            once = true;
+//                        System.out.println("A bit has been shifted. ");
+//                        }
+
                         os.writeObject(trameToSend); // Send Trame to Receiver
                     }
+
                     /* We get out of the while loop once the window quota has been reached. */
+                    /* Ici cest pour gener eplusieurs trames brisee */
+//                    for(int i = 0; i< tramesDestroyed.size(); i++){
+//                        if(tramesDestroyed.get(i) != -1){
+//                            for(int j = frameDestroyed; j < currentPositionTrame; j++){
+//                                trames.set(j, trames_nobBitStuff.get(j));
+//                            }
+//                            currentPositionWindow = frameDestroyed;
+//                            currentPositionTrame = frameDestroyed;
+//                            tramesDestroyed.set(i, -1);
+//                            if(listIterator.hasNext()){
+//                                break;
+//                            } else {
+//                                frameDestroyed = -1;
+//                            }
+//                        }
+//                    }
+//                    if(frameDestroyed != 1){
+//                        os.writeObject(trames.get(frameDestroyed)); // on renvoye la trame avec erreur
+//                        continue;
+//                    }
+
+//                    frameDestroyed = -1;
+                    if(frameDestroyed != -1){
+                        for(int i = frameDestroyed; i < currentPositionTrame; i++){
+                            trames.set(i, trames_nobBitStuff.get(i));
+                        }
+                        currentPositionWindow = frameDestroyed;
+                        currentPositionTrame = frameDestroyed;
+                        frameDestroyed = -1;
+                        continue;
+                    }
+
                     Trame answer = (Trame) is.readObject();
                     this.delimiter();
                     System.out.println("RECEIVED trame from Receiver ...");
@@ -166,36 +259,44 @@ public class Sender implements Serializable{
 
                         /* We have received a REJ. */
                     } else if (characterConversion.binaryToChar(answer.getType()).equals("R")){
-                        // TODO : Implement when we receive a R -> REJECT
-                        System.out.println(bitStuffing.bitStuffingReceiver(answer.getNum()));
-                        System.out.println(answer.getIndexInArrayList());
+
                         /* The Receiver has rejected our connection. */
                         if(bitStuffing.bitStuffingReceiver(answer.getNum()).equals("11111111")){
                             System.err.println("ERROR ::: RECEIVER has rejected the connection.");
                             System.err.println("EXITING PROGRAM");
                             System.exit(-1);
                         } else {
+
+                            System.out.println();
+                            System.out.println("******************************************************************************");
+                            System.out.println("We have received an REJ where a Trame contains an error.");
+                            System.out.println("We will have to send again the trames. ");
+                            System.out.println("Those that have been sent will be treated accordingly on the Receiver side.");
+                            System.out.println("******************************************************************************");
+                            System.out.println();
+
                             /* We have a rejected Trame. */
-                            if(answer.isError()){
-                                for(int i = trameReceived; i < currentPositionWindow; i++){
+                            if(answer.isError() || answer.getIndexInArrayList() == frameDestroyed){
+                                for(int i = trameReceived; i < currentPositionTrame; i++){
                                     trames.set(i, trames_nobBitStuff.get(i));
                                 }
                                 currentPositionWindow = trameReceived;
                                 currentPositionTrame = trameReceived;
-                                send = false; // on envoye plus de trame
+
+                                os.writeObject(answer); // on renvoye la trame avec erreur
+
+                                send = true; // on envoye plus de trame
                             }
                         }
-                        System.out.println("coucou");
                     }
 
                 }
-
 
             }
             /* Here we send the closing connection Trame. */
             this.delimiter();
             System.out.println("ATTEMPTING TO DISCONNECT ...");
-            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(255), "", "", 0);
+            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(255), "", "", 255);
             disconnected.setCrc(checkSum.checkSumData(disconnected.getType() + disconnected.getNum() + disconnected.getData(), POLYNOME_GENERATEUR));
             System.out.println("Trame to send to Receiver ... " + disconnected.prettyPrint());
             System.out.println("Sending disconnected Trame to receiver ---> " + disconnected.makeTrameFormat());
@@ -276,28 +377,6 @@ public class Sender implements Serializable{
             e.printStackTrace();
         }
         return dataTable;
-    }
-
-    /**
-     * Convert trames to binary
-     *
-     * @param trames ArrayList
-     * @return ArrayList
-     */
-    private ArrayList<String> convertToBin(ArrayList<Trame> trames) {
-
-        ArrayList<String> binaryTrames = new ArrayList<>();
-
-        CharacterConversion converter = new CharacterConversion();
-
-        // TODO: convert trame from list to binary format
-
-        return binaryTrames;
-    }
-
-    /* Convert decimal value to string. */
-    private String decimalToBinary(int decimal){
-        return Integer.toBinaryString(decimal);
     }
 
     /* The functions below are only used to pretty print the Sender information. */

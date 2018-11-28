@@ -40,4 +40,13 @@ public class ErrorTesting {
         }
         return stringBuilder.toString();
     }
+
+
+    public int destroyTrame(int numTrameToDestroy, Trame trame){
+        if(trame.getIndexInArrayList() == numTrameToDestroy){
+            trame.setError(true);
+            return numTrameToDestroy;
+        }
+        return -1;
+    }
 }

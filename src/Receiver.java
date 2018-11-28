@@ -38,6 +38,8 @@ public class Receiver extends Thread{
             boolean trameCRCError = false; // used in the REJ case
             int window = 7;
             boolean wait = false;
+            int frameError = -1;
+            int frameDestroyed = -1;
 
             System.out.println("####################################################################################################");
             System.out.println("#                                        Receiver.java file                                        #");
@@ -48,12 +50,7 @@ public class Receiver extends Thread{
             while (!endFile) {
 
                 Trame trame = (Trame) is.readObject();
-
-                /* Uncomment for TimeOut Test. */
-//                errorTesting.timeOut();
-
                 this.delimiter();
-                System.out.println("RECEIVER received a Trame (prettyPrint) : " + trame.prettyPrint());
 
                 /* Verify the Trame. */
                 String type = bitStuffingReceiver.bitStuffingReceiver(trame.getType());
@@ -62,14 +59,30 @@ public class Receiver extends Thread{
                 String crc = bitStuffingReceiver.bitStuffingReceiver(trame.getCrc());
                 crc = type + num + data + crc;
 
-                if(num.equals("00000010") && !once){
-                    crc = errorTesting.bitShift(12, crc);
-                    once = true;
-                }
+                /*
+                * Uncomment this to force a bit flip on the 00000010 trame and it does it once, so its
+                * for the trame number 2 (we start counting at zero)
+                */
+//                if(num.equals("00000010") && !once){
+//                    crc = errorTesting.bitShift(12, crc);
+//                    once = true;
+//                }
 
                 boolean validCrc = checkSum.validateCRC(crc, POLYNOME_GENERATEUR);
 
-                // TODO : Implementer si trame est pas ok, que faire parce quon doit attendre
+                if(frameError != -1 && frameError != characterConversion.convertBinaryToDecimal(num)){
+                    /* We have not received the good frame. */
+                    continue;
+                } else if (frameError == characterConversion.convertBinaryToDecimal(num)){
+                    wait = false;
+                    frameError = -1;
+                }
+
+                System.out.println("RECEIVER received a Trame (prettyPrint) : " + trame.prettyPrint());
+                System.out.println("THE TRAME NUMBER IS " + trame.getIndexInArrayList());
+
+                /* Uncomment for TimeOut Test. */
+//                errorTesting.timeOut();
 
                 if (validCrc){ // CRC is valid
                     if(!wait) {
@@ -114,12 +127,14 @@ public class Receiver extends Thread{
 
                             } else { // We have not received the appropriate Trame
 
-                                this.delimiter();
-
                                 System.out.println("ERROR ::: We have not received the appropriate Trame ::: ");
                                 System.out.println("We have not received the Trame number " + trameNumber);
-                                Trame REJTrame = new Trame(characterConversion.charToBinary("R"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
-                                os.writeObject(REJTrame);
+                                if (!once){
+                                    frameDestroyed = trameNumber;
+                                    once = true;
+                                }
+//                                Trame REJTrame = new Trame(characterConversion.charToBinary("R"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
+//                                os.writeObject(REJTrame);
 
                                 this.delimiter();
                                 System.out.println();
@@ -147,6 +162,10 @@ public class Receiver extends Thread{
                             endFile = true;
                         }
                     } else {
+
+                        /* This frame contains an error. We will have to wait till we get back this frame. */
+                        frameError = trame.getIndexInArrayList();
+
                         /* On attend les trames. */
                         System.out.println("Receiving Trame number ::: " + trame.getIndexInArrayList());
                         if (characterConversion.convertBinaryToDecimal(trame.getNum()) + 2 == window + trameNumber){
@@ -157,7 +176,9 @@ public class Receiver extends Thread{
                     }
                 } else { // la trame n'est valid, le crc n'est pas valid
 
-                    this.delimiter();
+                    frameError = trame.getIndexInArrayList();
+
+//                    this.delimiter();
                     System.out.println("ERROR ::: INVALID CRC ::: The Trame we received contains an error ::: ");
                     System.out.println("SENDING ::: REJ Trame ... ");
                     System.out.println("RECEIVER will refuse any Trame until " + trame.getIndexInArrayList() + " is resolved. ");
