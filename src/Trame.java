@@ -2,6 +2,9 @@ import java.io.Serializable;
 
 public class Trame implements Serializable {
 
+    /* Objects to use. */
+    BitStuffing bitStuffing = new BitStuffing();
+
     private final String FLAG;
     private String type;
     private String num;
@@ -21,21 +24,35 @@ public class Trame implements Serializable {
         this.indexInArrayList = indexInArrayList;
     }
 
-
     /**
      * This function will return the frame format :
      * -------------------------------------------------------------
      * |  FLAG  |   Type   |   Num   |   Data   |   CRC   |  FLAG  |
      * -------------------------------------------------------------
+     * De plus, la trame sera également bitstuffed.
      * @return : Returns the entire frame format.
      */
     public String makeTrameFormat(){
-        return this.FLAG +
-                this.type +
-                this.num +
-                this.data +
-                this.crc +
-                this.FLAG;
+        return this.FLAG + this.bitStuffSenderTrame() + this.FLAG;
+    }
+
+    public String bitStuffSenderTrame(){
+        return bitStuffing.bitStuffingSender(this.type + this.num + this.data + this.crc);
+    }
+
+    /**
+     * This function will pretty print a Trame.
+     * The printed format will be the following : >  FLAG  :::   Type   :::   Num   :::   Data   :::   CRC   :::  FLAG  <
+     */
+    public String prettyPrint(){
+        return ">" +
+                " FLAG " + this.FLAG + " ::: " +
+                " Type " + this.type + " ::: " +
+                " Num " + this.num + " ::: " +
+                " Data " + this.data + " ::: " +
+                " CRC " + this.crc + " ::: " +
+                " FLAG " + this.FLAG +
+                " <";
     }
 
     /* ------------------------------------------- Setters ------------------------------------------- */

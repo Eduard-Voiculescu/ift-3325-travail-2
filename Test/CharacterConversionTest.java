@@ -99,4 +99,143 @@ public class CharacterConversionTest {
         System.out.println("----- JUnit testTrameTypeCharToBinary() -> P finished without error. -----");
 
     }
+
+    @Test
+    public void testConvertDecimalToBinary(){
+        String result;
+
+        result = characterConversion.convertDecimalToBinary(0);
+        Assert.assertEquals(result,"00000000");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :0: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(1);
+        Assert.assertEquals(result,"00000001");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :1: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(2);
+        Assert.assertEquals(result,"00000010");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :2: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(3);
+        Assert.assertEquals(result,"00000011");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :3: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(4);
+        Assert.assertEquals(result,"00000100");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :4: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(5);
+        Assert.assertEquals(result,"00000101");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :5: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(6);
+        Assert.assertEquals(result,"00000110");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :6: conversion is OK -----");
+
+        result = characterConversion.convertDecimalToBinary(7);
+        Assert.assertEquals(result,"00000111");
+        System.out.println("----- JUnit testConvertDecimalToBinary() :7: conversion is OK -----");
+
+        System.out.println("----- JUnit testConvertDecimalToBinary() finished without error. -----");
+
+    }
+
+    @Test
+    public void testConvertBinaryToDecimal(){
+        int result;
+
+        result = characterConversion.convertBinaryToDecimal("00000000");
+        Assert.assertEquals(result, 0);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000000: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000001");
+        Assert.assertEquals(result, 1);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000001: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000010");
+        Assert.assertEquals(result, 2);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000010: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000011");
+        Assert.assertEquals(result, 3);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000011: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000100");
+        Assert.assertEquals(result, 4);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000100: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000101");
+        Assert.assertEquals(result, 5);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000101: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000110");
+        Assert.assertEquals(result, 6);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000110: conversion is OK -----");
+
+        result = characterConversion.convertBinaryToDecimal("00000111");
+        Assert.assertEquals(result, 7);
+        System.out.println("----- JUnit testConvertBinaryToDecimal() :00000111: conversion is OK -----");
+
+        System.out.println("----- JUnit testConvertBinaryToDecimal() finished without error. -----");
+
+    }
+
+    @Test
+    public void testConvertDecimalToBinaryEqualsConvertBinaryToDecimal(){
+        boolean result = false;
+        String binary;
+        int decimal;
+
+        binary = "00000000";
+        decimal = 0;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000000:0: conversion is OK -----");
+
+        binary = "00000001";
+        decimal = 1;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000001:1: conversion is OK -----");
+
+        binary = "00000010";
+        decimal = 2;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000010:2: conversion is OK -----");
+
+        binary = "00000011";
+        decimal = 3;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000011:3: conversion is OK -----");
+
+        binary = "00000100";
+        decimal = 4;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000100:4: conversion is OK -----");
+
+        binary = "00000101";
+        decimal = 5;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000101:5: conversion is OK -----");
+
+        binary = "00000110";
+        decimal = 6;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000110:6: conversion is OK -----");
+
+        binary = "00000111";
+        decimal = 7;
+        result = characterConversion.convertDecimalToBinary(characterConversion.convertBinaryToDecimal(binary)).equals(binary);
+        Assert.assertTrue(result);
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() :00000111:7: conversion is OK -----");
+
+        System.out.println("----- JUnit testConvertDecimalToBinaryEqualsConvertBinaryToDecimal() finished without error. -----");
+
+    }
+
 }

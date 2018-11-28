@@ -1,6 +1,5 @@
 import java.io.*;
 import java.net.*;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Sender implements Serializable{
@@ -25,7 +24,7 @@ public class Sender implements Serializable{
 
     /* Variables */
     boolean connected = false;
-    int numberOfTrameSent = 0;
+    int numberOfTrameConfirmed = 0;
     int currentPositionTrame = 0;
     int currentPositionWindow = 0;
 
@@ -38,16 +37,14 @@ public class Sender implements Serializable{
         this.fileName = fileName;
         this.protocole = protocole;
 
+        while (timeout < 3) {
+            int result = createSocket(machineName, portNumber, fileName, protocole);
 
-        int result = createSocket(machineName, portNumber, fileName, protocole);
-//        while (timeout < 3) {
-//            int result = createSocket(machineName, portNumber, fileName, protocole);
-//
-//            /* Here we tried to create socket but there was an error.  */
-//            if (result == 0) {
-//                timeout += 1;
-//            }
-//        }
+            /* Here we tried to create socket but there was an error.  */
+            if (result == 0) {
+                timeout += 1;
+            }
+        }
 
     }
 
@@ -60,39 +57,47 @@ public class Sender implements Serializable{
         */
         try (
                 Socket socket = new Socket(machineName, portNumber);
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-
                 ObjectOutputStream os = new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream is = new ObjectInputStream(socket.getInputStream())
 
         ) {
 
-            System.out.println("##############################  Sender.java file ##############################");
+            System.out.println("####################################################################################################");
+            System.out.println("#                                         Sender.java file                                         #");
+            System.out.println("####################################################################################################");
 
             System.out.println("SENDER STATE : READY");
+            System.out.println("Text file to read ::: " + fileName);
+            System.out.println();
+
             this.delimiter();
 
             if (timeout > 0){
-                Trame firstTrame = new Trame("P", characterConversion.convertDecimalToBinary(0), "", POLYNOME_GENERATEUR, 0);
+                System.out.println("CONNECTION TIMEOUT ...");
+                Trame connectionTimedOut = new Trame("P", characterConversion.convertDecimalToBinary(0), "", POLYNOME_GENERATEUR, 0);
+                System.out.println("Trame to send to Receiver ... " + connectionTimedOut.prettyPrint());
+                System.out.println("Sending connectionTimedOut to receiver ---> " + connectionTimedOut.makeTrameFormat());
+                os.writeObject(connectionTimedOut);
             }
 
             /* We create all the Trame objects and put them in an ArrayList<Trames> */
             trames = createTrames(fileName);
 
-            while (numberOfTrameSent < trames.size()){
-                System.out.println("Trame confirmed sent -> " + numberOfTrameSent);
+            while (numberOfTrameConfirmed < trames.size()){
 
                 /* Entrer ici pour la première fois. Envoyer la trame de demande de connexion. */
                 if (!connected){
                     System.out.println("Attempting to connect ...");
-//                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes.
-                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(0), "", POLYNOME_GENERATEUR, 0);
-                    System.out.println("Sending connectionTrame to receiver ---> "
-                            + bitStuffing.bitStuffingSender(connectionTrame.makeTrameFormat()));
+//                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
+                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(255), "", "", 0);
+                    connectionTrame.setCrc(checkSum.checkSumData(connectionTrame.getType() + connectionTrame.getNum() + connectionTrame.getData(), POLYNOME_GENERATEUR));
+                    System.out.println("Trame to send to Receiver ... " + connectionTrame.prettyPrint());
+                    System.out.println("Sending connectionTrame to receiver ---> " + connectionTrame.makeTrameFormat());
                     os.writeObject(connectionTrame); // Send trame to Receiver
                     // Imprimer la reponse du receveur.
                     Trame answer = (Trame) is.readObject();
-                    System.out.println("Trame received by Receiver ... " + answer.makeTrameFormat());
+                    System.out.println("Trame received by Receiver (prettyPrint) ::: " + answer.prettyPrint());
+                    System.out.println("Trame received by Receiver ::: " + answer.makeTrameFormat());
 
                     /* Verification if appropriate Trame reecived. */
                     if (characterConversion.binaryToChar(answer.getType()).equals("A")){
@@ -102,14 +107,14 @@ public class Sender implements Serializable{
                         System.out.println();
                         timeout = 0;
                         connected = true;
-
-
                     }
-                } else { // we are now connected
 
+                } else { // we are now connected
+                    System.out.println("Trame confirmed sent -> " + numberOfTrameConfirmed);
                     /* Because our window size is of 7 we have to do another while loop. Complexity-wise could be done in a better. */
-                    while (currentPositionWindow <= window && currentPositionTrame <= trames.size()) {
+                    while (currentPositionWindow < window && currentPositionTrame < trames.size()) {
                         this.delimiter();
+                        System.out.println("Window size left before sending Trame : " + Integer.toString(window - currentPositionWindow));
                         System.out.println("SENDING Trame Information ... ");
                         Trame trameToSend = trames.get(currentPositionTrame);
                         System.out.println("SENDING Trame number ---> " + Integer.toString(trameToSend.getIndexInArrayList()));
@@ -117,31 +122,78 @@ public class Sender implements Serializable{
                         * On transforme toute les données en bits. Data est déjà fait lorsque nous avons créer notre ArrayList<Trame>.
                         * Nous allons egalement bitstuff toute les donnees pour que le tout soit ok.
                         */
-                        trameToSend.setType(bitStuffing.bitStuffingSender(trameToSend.getType()));
-                        trameToSend.setNum(bitStuffing.bitStuffingSender(characterConversion.convertDecimalToBinary(Integer.parseInt(trameToSend.getNum()))));
-                        trameToSend.setData(bitStuffing.bitStuffingSender(trameToSend.getData()));
-                        trameToSend.setCrc(bitStuffing.bitStuffingSender(POLYNOME_GENERATEUR)); // TODO : Change this to calculate CRC.
-                        System.out.println("Trame to send to Receiver ---> " + trameToSend.makeTrameFormat());
-                        System.out.println("Window size left to send Trame ---> " + Integer.toString(window - currentPositionWindow));
+//                        trameToSend.setType(bitStuffing.bitStuffingSender(trameToSend.getType()));
+                        trameToSend.setNum(characterConversion.convertDecimalToBinary(Integer.parseInt(trameToSend.getNum())));
+//                        trameToSend.setData(bitStuffing.bitStuffingSender(trameToSend.getData()));
+                        trameToSend.setCrc(checkSum.checkSumData(trameToSend.getType()+trameToSend.getNum()+trameToSend.getData(), POLYNOME_GENERATEUR));
+
+                        System.out.println("Trame to send to Receiver ---> " + trameToSend.prettyPrint());
+                        System.out.println("SENDING Trame ::: " + trameToSend.makeTrameFormat());
+                        System.out.println("Window size left to send Trame ---> " + Integer.toString(window - currentPositionWindow - 1));
+
                         currentPositionTrame++;
                         currentPositionWindow++;
+
                         this.delimiter();
                         System.out.println();
+
                         os.writeObject(trameToSend); // Send Trame to Receiver
-                        Trame answer = (Trame) is.readObject();
                     }
-                    break;
+                    /* We get out of the while loop once the window quota has been reached. */
+                    Trame answer = (Trame) is.readObject();
+                    this.delimiter();
+                    System.out.println("RECEIVED trame from Receiver ...");
+                    System.out.println("Trame received (pretty print)" + answer.prettyPrint());
+                    System.out.println("Trame received ---> " + answer.makeTrameFormat());
+                    timeout = 0; // reset timer
+
+                    /* Have to check the trame that we received.  */
+                    int trameReceived = characterConversion.convertBinaryToDecimal(answer.getNum());
+
+                    /* We have received an ACK. */
+                    if(characterConversion.binaryToChar(answer.getType()).equals("A")){
+                        numberOfTrameConfirmed++;
+                        System.out.println("RECEIVED ACK from Receiver ::: Trame number ---> " + answer.getIndexInArrayList());
+                        System.out.println("RECEIVED ACK from Receiver (Num associated to window) ::: " + trameReceived + " ::: " + answer.getNum());
+
+                        currentPositionWindow--; // On peut envoyer une trame de plus.
+                        this.delimiter();
+                        System.out.println();
+
+                        /* We have received a REJ. */
+                    } else if (characterConversion.binaryToChar(answer.getType()).equals("R")){
+                        // TODO : Implement when we receive a R -> REJECT
+                        System.out.println("coucou");
+                    }
 
                 }
 
 
             }
+            /* Here we send the closing connection Trame. */
+            this.delimiter();
+            System.out.println("ATTEMPTING TO DISCONNECT ...");
+            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(255), "", "", 0);
+            disconnected.setCrc(checkSum.checkSumData(disconnected.getType() + disconnected.getNum() + disconnected.getData(), POLYNOME_GENERATEUR));
+            System.out.println("Trame to send to Receiver ... " + disconnected.prettyPrint());
+            System.out.println("Sending disconnected Trame to receiver ---> " + disconnected.makeTrameFormat());
+            this.delimiter();
 
+            os.writeObject(disconnected); // Send trame to Receiver
 
-            return 0; // Everything is OK
-        } catch (Exception e) {
-            return 1; // An error occurred
+            System.exit(0);
+
+        } catch (IOException e) {
+            System.err.println("Temporisateur time has been exceeded. Buffer Timed Out. Machine : " +
+                    machineName + " is not responding.");
+            System.err.println("We will send out a PBit.");
+            return 0; // An error occurred
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            System.exit(-1);
         }
+        return 1;
     }
 
     /**
@@ -167,7 +219,7 @@ public class Sender implements Serializable{
 
 
             Trame trame = new Trame(characterConversion.charToBinary("I"),
-                    String.valueOf(i%8),
+                    String.valueOf(i % 8),
                     data.get(i),
                     "",
                     i);
@@ -253,7 +305,9 @@ public class Sender implements Serializable{
 
         try {
 //            Sender sender = new Sender(Nom_machine, port, filename, protocole);
-            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
+//            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
+//            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_Wtichers.txt", "0");
+            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_World_Lore.txt", "0");
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,10 +1,11 @@
+import java.io.Serializable;
 
 /**
  * Bit Stuffing est fait dans tous les champs sauf les fanions.
  * Nous avons un bit stuffing pour le sender (BitStuffingReceiver et
  * BitStuffingSender)
  */
-public class BitStuffing {
+public class BitStuffing implements Serializable {
 
     /**
      * This function is used by the sender to bitstuff it's data.

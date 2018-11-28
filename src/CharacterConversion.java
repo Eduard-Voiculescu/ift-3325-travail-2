@@ -67,5 +67,9 @@ public class CharacterConversion {
         return stringBuilder1.toString() + padding;
     }
 
+    /* Inspiration : https://www.thecrazyprogrammer.com/2015/11/program-to-convert-binary-to-decimal-in-java.html */
+    public int convertBinaryToDecimal(String binary){
+        return Integer.parseInt(binary, 2);
+    }
 
 }
