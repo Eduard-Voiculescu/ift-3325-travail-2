@@ -21,7 +21,6 @@ public class ErrorTestingTest {
         Assert.assertEquals(result, "01111110010010101000000000000000000000000111110");
         System.out.println("----- JUnit testBitShift() -> successfully fliped bit at index 16 -----");
 
-
         System.out.println("----- JUnit testBitShift() -> finished without error. -----");
     }
 }

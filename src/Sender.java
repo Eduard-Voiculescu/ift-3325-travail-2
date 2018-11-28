@@ -21,12 +21,15 @@ public class Sender implements Serializable{
 
     /* Lists pour les trames. */
     private ArrayList<Trame> trames;
+    private ArrayList<Trame> trames_nobBitStuff;
 
     /* Variables */
     boolean connected = false;
     int numberOfTrameConfirmed = 0;
     int currentPositionTrame = 0;
     int currentPositionWindow = 0;
+
+    private boolean send = true;
 
     /**
      * Constructeur
@@ -82,6 +85,7 @@ public class Sender implements Serializable{
 
             /* We create all the Trame objects and put them in an ArrayList<Trames> */
             trames = createTrames(fileName);
+            trames_nobBitStuff = createTrames(fileName);
 
             while (numberOfTrameConfirmed < trames.size()){
 
@@ -89,7 +93,7 @@ public class Sender implements Serializable{
                 if (!connected){
                     System.out.println("Attempting to connect ...");
 //                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
-                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(0), "", "", 0);
+                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(255), "", "", 0);
                     connectionTrame.setCrc(checkSum.checkSumData(connectionTrame.getType() + connectionTrame.getNum() + connectionTrame.getData(), POLYNOME_GENERATEUR));
                     System.out.println("Trame to send to Receiver ... " + connectionTrame.prettyPrint());
                     System.out.println("Sending connectionTrame to receiver ---> " + connectionTrame.makeTrameFormat());
@@ -112,7 +116,7 @@ public class Sender implements Serializable{
                 } else { // we are now connected
                     System.out.println("Trame confirmed sent -> " + numberOfTrameConfirmed);
                     /* Because our window size is of 7 we have to do another while loop. Complexity-wise could be done in a better. */
-                    while (currentPositionWindow < window && currentPositionTrame < trames.size()) {
+                    while (currentPositionWindow < window && currentPositionTrame < trames.size() && send) {
                         this.delimiter();
                         System.out.println("Window size left before sending Trame : " + Integer.toString(window - currentPositionWindow));
                         System.out.println("SENDING Trame Information ... ");
@@ -152,6 +156,7 @@ public class Sender implements Serializable{
 
                     /* We have received an ACK. */
                     if(characterConversion.binaryToChar(answer.getType()).equals("A")){
+                        send = true;
                         numberOfTrameConfirmed++;
                         System.out.println("RECEIVED ACK from Receiver ::: Trame number ---> " + answer.getIndexInArrayList());
                         System.out.println("RECEIVED ACK from Receiver (Num associated to window) ::: " + trameReceived + " ::: " + answer.getNum());
@@ -163,6 +168,40 @@ public class Sender implements Serializable{
                         /* We have received a REJ. */
                     } else if (characterConversion.binaryToChar(answer.getType()).equals("R")){
                         // TODO : Implement when we receive a R -> REJECT
+                        System.out.println(bitStuffing.bitStuffingReceiver(answer.getNum()));
+                        System.out.println(answer.getIndexInArrayList());
+                        /* The Receiver has rejected our connection. */
+                        if(bitStuffing.bitStuffingReceiver(answer.getNum()).equals("11111111")){
+                            System.err.println("ERROR ::: RECEIVER has rejected the connection.");
+                            System.err.println("EXITING PROGRAM");
+                            System.exit(-1);
+                        } else {
+                            /* We have a rejected Trame. */
+                            // currentcurr = currentPositionWindow
+                            if (trameReceived > currentPositionTrame){
+                                int diff = trameReceived - currentPositionTrame;
+                                currentPositionWindow = window - diff;
+                            }else{
+                                currentPositionWindow = currentPositionTrame - trameReceived;
+                                currentPositionWindow = window - currentPositionWindow;
+                            }
+                            currentPositionTrame = trameReceived;
+
+                            send = false;
+                            /* We have a rejection that does not regard the connection. */
+                            for(int i = trameReceived; i < currentPositionWindow; i++){
+                                trames.set(i, trames_nobBitStuff.get(i));
+                            }
+                            this.currentPositionWindow = trameReceived;
+                            this.currentPositionTrame = trameReceived;
+//                            if (trameReceived > answer.getIndexInArrayList()){
+//                                int diff = trameReceived - this.currentPositionWindow;
+//                                this.currentPositionWindow = window - diff;
+//                            }else{
+//                                this.currentPositionWindow = trameReceived;
+////                                this.currentPositionWindow = window - this.currentPositionWindow;
+//                            }
+                        }
                         System.out.println("coucou");
                     }
 
@@ -173,7 +212,7 @@ public class Sender implements Serializable{
             /* Here we send the closing connection Trame. */
             this.delimiter();
             System.out.println("ATTEMPTING TO DISCONNECT ...");
-            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(0), "", "", 0);
+            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(255), "", "", 0);
             disconnected.setCrc(checkSum.checkSumData(disconnected.getType() + disconnected.getNum() + disconnected.getData(), POLYNOME_GENERATEUR));
             System.out.println("Trame to send to Receiver ... " + disconnected.prettyPrint());
             System.out.println("Sending disconnected Trame to receiver ---> " + disconnected.makeTrameFormat());
