@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/CharacterConversionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/CharacterConversionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Trame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestBitStuffingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestBitStuffingTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BitStuffing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BitStuffing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterConversion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Trame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trame.java" afterDir="false" />
@@ -53,12 +48,12 @@
           <entry key="Witcher3_Geralt_Rivia_Lore" value="16" />
           <entry key="Witcher3_The_Witchers" value="11" />
           <entry key="dummy" value="8" />
-          <entry key="java" value="30037" />
+          <entry key="java" value="30257" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="30037" />
+          <entry key="JAVA" value="30257" />
           <entry key="PLAIN_TEXT" value="35" />
         </counts>
       </usages-collector>
@@ -93,34 +88,47 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.29009843">
+    <splitter split-orientation="horizontal" split-proportion="0.6236248">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Trame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="302">
-                  <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+                <state relative-caret-position="280">
+                  <caret line="52" column="70" lean-forward="true" selection-start-line="52" selection-start-column="70" selection-end-line="52" selection-end-column="70" />
                   <folding>
-                    <element signature="e#996#997#0" expanded="true" />
-                    <element signature="e#1040#1041#0" expanded="true" />
-                    <element signature="method#readTrame#0;class#Trame#0" />
-                    <element signature="e#2642#2643#0" expanded="true" />
-                    <element signature="e#2698#2699#0" expanded="true" />
-                    <element signature="e#2344#2345#0" expanded="true" />
-                    <element signature="e#2370#2371#0" expanded="true" />
-                    <element signature="e#2542#2543#0" expanded="true" />
-                    <element signature="e#2581#2582#0" expanded="true" />
+                    <element signature="e#2086#2087#0" expanded="true" />
+                    <element signature="e#2118#2119#0" expanded="true" />
+                    <element signature="e#2237#2238#0" expanded="true" />
+                    <element signature="e#2267#2268#0" expanded="true" />
+                    <element signature="e#2372#2373#0" expanded="true" />
+                    <element signature="e#2404#2405#0" expanded="true" />
+                    <element signature="e#2527#2528#0" expanded="true" />
+                    <element signature="e#2557#2558#0" expanded="true" />
+                    <element signature="e#2697#2698#0" expanded="true" />
+                    <element signature="e#2753#2754#0" expanded="true" />
+                    <element signature="e#2988#2989#0" expanded="true" />
+                    <element signature="e#3015#3016#0" expanded="true" />
+                    <element signature="e#3135#3136#0" expanded="true" />
+                    <element signature="e#3162#3163#0" expanded="true" />
+                    <element signature="e#3192#3193#0" expanded="true" />
+                    <element signature="e#3218#3219#0" expanded="true" />
+                    <element signature="e#3313#3314#0" expanded="true" />
+                    <element signature="e#3340#3341#0" expanded="true" />
+                    <element signature="e#3452#3453#0" expanded="true" />
+                    <element signature="e#3478#3479#0" expanded="true" />
+                    <element signature="e#3601#3602#0" expanded="true" />
+                    <element signature="e#3640#3641#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Sender.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="205">
-                  <caret line="91" column="139" selection-start-line="91" selection-start-column="139" selection-end-line="91" selection-end-column="139" />
+                <state relative-caret-position="73">
+                  <caret line="175" column="126" selection-start-line="175" selection-start-column="126" selection-end-line="175" selection-end-column="126" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#9558#9559#0" expanded="true" />
@@ -130,11 +138,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="117">
-                  <caret line="8" selection-start-line="8" selection-end-line="8" />
+                <state relative-caret-position="333">
+                  <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
                 </state>
               </provider>
             </entry>
@@ -174,11 +182,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Receiver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="263">
-                  <caret line="102" column="63" lean-forward="true" selection-start-line="102" selection-start-column="63" selection-end-line="102" selection-end-column="63" />
+                <state relative-caret-position="318">
+                  <caret line="60" column="62" lean-forward="true" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
                 </state>
               </provider>
             </entry>
@@ -201,11 +209,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+                <state relative-caret-position="306">
+                  <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -244,8 +252,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+                <state relative-caret-position="351">
+                  <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -271,6 +279,11 @@
       <find>XORDivision</find>
       <find>trameNumber</find>
       <find>sent</find>
+      <find>makeTrame</find>
+      <find>bitStuffingReceiver</find>
+      <find>bitS</find>
+      <find>makeTrameFormat</find>
+      <find>bitSt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -287,21 +300,21 @@
         <option value="$PROJECT_DIR$/Test/TestJunit.java" />
         <option value="$PROJECT_DIR$/Test/TestJunitTest.java" />
         <option value="$PROJECT_DIR$/Test/TestBitStuffing.java" />
-        <option value="$PROJECT_DIR$/Test/TestBitStuffingTest.java" />
         <option value="$PROJECT_DIR$/src/TrameProcessor.java" />
         <option value="$PROJECT_DIR$/Test/CheckSumTest.java" />
         <option value="$PROJECT_DIR$/src/CheckSum.java" />
         <option value="$PROJECT_DIR$/src/TrameProcessorReceiver.java" />
         <option value="$PROJECT_DIR$/src/CharacterConversion.java" />
-        <option value="$PROJECT_DIR$/src/BitStuffing.java" />
         <option value="$PROJECT_DIR$/Witcher3_Geralt_Rivia_Lore" />
         <option value="$PROJECT_DIR$/Witcher3_The_Witchers" />
         <option value="$PROJECT_DIR$/Test/CharacterConversionTest.java" />
-        <option value="$PROJECT_DIR$/src/Trame.java" />
         <option value="$PROJECT_DIR$/Test/ErrorTestingTest.java" />
         <option value="$PROJECT_DIR$/src/ErrorTesting.java" />
+        <option value="$PROJECT_DIR$/src/Trame.java" />
         <option value="$PROJECT_DIR$/src/Receiver.java" />
         <option value="$PROJECT_DIR$/src/Sender.java" />
+        <option value="$PROJECT_DIR$/Test/TestBitStuffingTest.java" />
+        <option value="$PROJECT_DIR$/src/BitStuffing.java" />
       </list>
     </option>
   </component>
@@ -374,7 +387,7 @@
     <property name="SearchEverywhereHistoryKey" value="readTrame&#9;PSI&#9;JAVA://Trame#readTrame" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543374380813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543375873922" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -481,7 +494,7 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="107870000" />
+      <workItem from="1542855038013" duration="109396000" />
     </task>
     <servers />
   </component>
@@ -518,7 +531,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117997000" />
+    <option name="totallyTimeSpent" value="119523000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,8 +546,8 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49784482" visible="true" weight="0.07942431" />
-      <window_info id="Structure" order="1" sideWeight="0.5021552" side_tool="true" visible="true" weight="0.07942431" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.07942431" />
+      <window_info id="Structure" order="1" sideWeight="0.50214595" side_tool="true" visible="true" weight="0.07942431" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -542,8 +555,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40238613" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4967462" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5737527" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.49457702" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.46746203" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
@@ -625,6 +638,12 @@
           <line>83</line>
           <properties />
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Receiver.java</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -777,16 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TrameProcessorSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -871,42 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Trame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="58" column="32" lean-forward="true" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-          <folding>
-            <element signature="e#996#997#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="method#readTrame#0;class#Trame#0" />
-            <element signature="e#2642#2643#0" expanded="true" />
-            <element signature="e#2698#2699#0" expanded="true" />
-            <element signature="e#2344#2345#0" expanded="true" />
-            <element signature="e#2370#2371#0" expanded="true" />
-            <element signature="e#2542#2543#0" expanded="true" />
-            <element signature="e#2581#2582#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckSum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="127" column="71" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -917,13 +894,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/ErrorTestingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="95" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
         </state>
       </provider>
     </entry>
@@ -945,10 +915,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Test/ErrorTestingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="95" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="91" column="139" selection-start-line="91" selection-start-column="139" selection-end-line="91" selection-end-column="139" />
+        <state relative-caret-position="73">
+          <caret line="175" column="126" selection-start-line="175" selection-start-column="126" selection-end-line="175" selection-end-column="126" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#9558#9559#0" expanded="true" />
@@ -957,10 +944,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Trame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="52" column="70" lean-forward="true" selection-start-line="52" selection-start-column="70" selection-end-line="52" selection-end-column="70" />
+          <folding>
+            <element signature="e#2086#2087#0" expanded="true" />
+            <element signature="e#2118#2119#0" expanded="true" />
+            <element signature="e#2237#2238#0" expanded="true" />
+            <element signature="e#2267#2268#0" expanded="true" />
+            <element signature="e#2372#2373#0" expanded="true" />
+            <element signature="e#2404#2405#0" expanded="true" />
+            <element signature="e#2527#2528#0" expanded="true" />
+            <element signature="e#2557#2558#0" expanded="true" />
+            <element signature="e#2697#2698#0" expanded="true" />
+            <element signature="e#2753#2754#0" expanded="true" />
+            <element signature="e#2988#2989#0" expanded="true" />
+            <element signature="e#3015#3016#0" expanded="true" />
+            <element signature="e#3135#3136#0" expanded="true" />
+            <element signature="e#3162#3163#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
+            <element signature="e#3218#3219#0" expanded="true" />
+            <element signature="e#3313#3314#0" expanded="true" />
+            <element signature="e#3340#3341#0" expanded="true" />
+            <element signature="e#3452#3453#0" expanded="true" />
+            <element signature="e#3478#3479#0" expanded="true" />
+            <element signature="e#3601#3602#0" expanded="true" />
+            <element signature="e#3640#3641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Receiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="102" column="63" lean-forward="true" selection-start-line="102" selection-start-column="63" selection-end-line="102" selection-end-column="63" />
+        <state relative-caret-position="318">
+          <caret line="60" column="62" lean-forward="true" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="22" lean-forward="true" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="74" column="57" selection-start-line="74" selection-start-column="57" selection-end-line="74" selection-end-column="57" />
         </state>
       </provider>
     </entry>

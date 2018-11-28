@@ -33,7 +33,15 @@ public class Trame implements Serializable {
      * @return : Returns the entire frame format.
      */
     public String makeTrameFormat(){
-        return this.FLAG + this.bitStuffSenderTrame() + this.FLAG;
+        String result = this.FLAG + this.bitStuffSenderTrame() + this.FLAG;
+
+        /* Ici on doit bit stuff type, num, data et crc */
+        this.type = bitStuffing.bitStuffingSender(this.type);
+        this.num = bitStuffing.bitStuffingSender(this.num);
+        this.data = bitStuffing.bitStuffingSender(this.data);
+        this.crc = bitStuffing.bitStuffingSender(this.crc);
+
+        return result;
     }
 
     public String bitStuffSenderTrame(){

@@ -89,7 +89,7 @@ public class Sender implements Serializable{
                 if (!connected){
                     System.out.println("Attempting to connect ...");
 //                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
-                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(255), "", "", 0);
+                    Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(0), "", "", 0);
                     connectionTrame.setCrc(checkSum.checkSumData(connectionTrame.getType() + connectionTrame.getNum() + connectionTrame.getData(), POLYNOME_GENERATEUR));
                     System.out.println("Trame to send to Receiver ... " + connectionTrame.prettyPrint());
                     System.out.println("Sending connectionTrame to receiver ---> " + connectionTrame.makeTrameFormat());
@@ -173,7 +173,7 @@ public class Sender implements Serializable{
             /* Here we send the closing connection Trame. */
             this.delimiter();
             System.out.println("ATTEMPTING TO DISCONNECT ...");
-            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(255), "", "", 0);
+            Trame disconnected = new Trame(characterConversion.charToBinary("F"), characterConversion.convertDecimalToBinary(0), "", "", 0);
             disconnected.setCrc(checkSum.checkSumData(disconnected.getType() + disconnected.getNum() + disconnected.getData(), POLYNOME_GENERATEUR));
             System.out.println("Trame to send to Receiver ... " + disconnected.prettyPrint());
             System.out.println("Sending disconnected Trame to receiver ---> " + disconnected.makeTrameFormat());

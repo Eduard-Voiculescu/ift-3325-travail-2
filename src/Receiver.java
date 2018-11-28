@@ -55,10 +55,10 @@ public class Receiver extends Thread{
                 System.out.println("RECEIVER received a Trame : " + trame.makeTrameFormat());
 
                 /* Verify the Trame. */
-                String type = trame.getType();
-                String num = trame.getNum();
-                String data = trame.getData();
-                String crc = trame.getCrc();
+                String type = bitStuffingReceiver.bitStuffingReceiver(trame.getType());
+                String num = bitStuffingReceiver.bitStuffingReceiver(trame.getNum());
+                String data = bitStuffingReceiver.bitStuffingReceiver(trame.getData());
+                String crc = bitStuffingReceiver.bitStuffingReceiver(trame.getCrc());
                 crc = type + num + data + crc;
 
 //                if(num.equals("00000010")){

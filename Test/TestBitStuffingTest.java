@@ -14,7 +14,7 @@ public class TestBitStuffingTest {
     @Test
     public void testSenderEmpty() {
         TestBitStuffing testBitStuffing = new TestBitStuffing();
-        Assert.assertEquals(testBitStuffing.testSenderEmpty(), "Data set to send is empty. Nothing to bit stuff.");
+        Assert.assertEquals(testBitStuffing.testSenderEmpty(), "");
 
         System.out.println("----- JUnit testSenderEmpty() finished without error. -----");
     }
@@ -30,7 +30,7 @@ public class TestBitStuffingTest {
     @Test
     public void testReceiverEmpty(){
         TestBitStuffing testBitStuffing = new TestBitStuffing();
-        Assert.assertEquals(testBitStuffing.testReceiverEmpty(), "Empty Data in Frame.");
+        Assert.assertEquals(testBitStuffing.testReceiverEmpty(), "");
 
         System.out.println("----- JUnit testReceiverEmpty() finished without error. -----");
 

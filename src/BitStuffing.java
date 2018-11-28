@@ -17,7 +17,7 @@ public class BitStuffing implements Serializable {
 
         /* We have to consider the fact that a data set to send can be empty. */
         if (data.length() == 0){
-            return "Data set to send is empty. Nothing to bit stuff.";
+            return "";
         }
 
         for(int i = 0; i < data.length(); i++){
@@ -49,7 +49,7 @@ public class BitStuffing implements Serializable {
 
         /* We have to consider the fact that a data set from a frame can be empty. */
         if (data.length() == 0){
-            return "Empty Data in Frame.";
+            return "";
         }
 
         for(int i = 0; i < data.length(); i++){
@@ -68,6 +68,13 @@ public class BitStuffing implements Serializable {
             }
         }
         return bitStuffedData.toString();
+    }
+
+    public static void main(String[] args) {
+        BitStuffing bitStuffing = new BitStuffing();
+        System.out.println(bitStuffing.bitStuffingSender("0011000111111000"));
+        System.out.println(bitStuffing);
+
     }
 
 }
