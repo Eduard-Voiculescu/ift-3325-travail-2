@@ -73,7 +73,8 @@ public class BitStuffing implements Serializable {
     public static void main(String[] args) {
         BitStuffing bitStuffing = new BitStuffing();
         System.out.println(bitStuffing.bitStuffingSender("0011000111111000"));
-        System.out.println(bitStuffing);
+
+        System.out.println(bitStuffing.bitStuffingReceiver("00110001111101000"));
 
     }
 

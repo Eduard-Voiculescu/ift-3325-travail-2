@@ -52,7 +52,6 @@ public class Receiver extends Thread{
 
                 this.delimiter();
                 System.out.println("RECEIVER received a Trame (prettyPrint) : " + trame.prettyPrint());
-                System.out.println("RECEIVER received a Trame : " + trame.makeTrameFormat());
 
                 /* Verify the Trame. */
                 String type = bitStuffingReceiver.bitStuffingReceiver(trame.getType());

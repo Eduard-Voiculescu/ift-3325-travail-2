@@ -305,9 +305,9 @@ public class Sender implements Serializable{
 
         try {
 //            Sender sender = new Sender(Nom_machine, port, filename, protocole);
-//            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
+            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
 //            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_Wtichers.txt", "0");
-            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_World_Lore.txt", "0");
+//            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_World_Lore.txt", "0");
 
         } catch (Exception e) {
             e.printStackTrace();
