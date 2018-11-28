@@ -156,7 +156,6 @@ public class Sender implements Serializable{
 
                     /* We have received an ACK. */
                     if(characterConversion.binaryToChar(answer.getType()).equals("A")){
-                        send = true;
                         numberOfTrameConfirmed++;
                         System.out.println("RECEIVED ACK from Receiver ::: Trame number ---> " + answer.getIndexInArrayList());
                         System.out.println("RECEIVED ACK from Receiver (Num associated to window) ::: " + trameReceived + " ::: " + answer.getNum());

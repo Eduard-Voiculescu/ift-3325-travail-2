@@ -62,10 +62,10 @@ public class Receiver extends Thread{
                 String crc = bitStuffingReceiver.bitStuffingReceiver(trame.getCrc());
                 crc = type + num + data + crc;
 
-//                if(num.equals("00000010") && !once){
-//                    crc = errorTesting.bitShift(12, crc);
-//                    once = true;
-//                }
+                if(num.equals("00000010") && !once){
+                    crc = errorTesting.bitShift(12, crc);
+                    once = true;
+                }
 
                 boolean validCrc = checkSum.validateCRC(crc, POLYNOME_GENERATEUR);
 
@@ -162,9 +162,10 @@ public class Receiver extends Thread{
                     System.out.println("SENDING ::: REJ Trame ... ");
                     System.out.println("RECEIVER will refuse any Trame until " + trame.getIndexInArrayList() + " is resolved. ");
                     /* By default we have put the Num field equal to the trame that had an error. */
-                    Trame errorTrame = new Trame(characterConversion.charToBinary("R"), trame.getNum(), "", "", 0);
+                    Trame errorTrame = new Trame(characterConversion.charToBinary("R"), trame.getNum(), "", "", trame.getIndexInArrayList());
                     errorTrame.setError(true); // il y a une erreur dans cette trame
                     errorTrame.setCrc(checkSum.checkSumData(errorTrame.getType() + errorTrame.getNum() + errorTrame.getData(), POLYNOME_GENERATEUR));
+                    os.writeObject(errorTrame);
                     wait = true;
 
                 }
