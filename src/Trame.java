@@ -11,6 +11,7 @@ public class Trame implements Serializable {
     private String data;
     private String crc;
     private int indexInArrayList;
+    private boolean error;
 
     /**
      * Constructeur
@@ -22,6 +23,7 @@ public class Trame implements Serializable {
         this.data = data;
         this.crc = crc;
         this.indexInArrayList = indexInArrayList;
+        this.error = false;
     }
 
     /**
@@ -140,5 +142,13 @@ public class Trame implements Serializable {
      */
     public int getIndexInArrayList() {
         return indexInArrayList;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public void setError(boolean error) {
+        this.error = error;
     }
 }

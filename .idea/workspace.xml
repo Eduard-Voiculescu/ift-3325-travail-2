@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/ErrorTestingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/ErrorTestingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Trame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,12 +46,12 @@
           <entry key="Witcher3_Geralt_Rivia_Lore" value="16" />
           <entry key="Witcher3_The_Witchers" value="11" />
           <entry key="dummy" value="8" />
-          <entry key="java" value="31471" />
+          <entry key="java" value="31706" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="31471" />
+          <entry key="JAVA" value="31706" />
           <entry key="PLAIN_TEXT" value="35" />
         </counts>
       </usages-collector>
@@ -89,14 +86,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.73134327">
+    <splitter split-orientation="horizontal" split-proportion="0.45842218">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Trame.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="293">
-                  <caret line="46" column="37" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="37" />
+                <state relative-caret-position="297">
+                  <caret line="146" column="30" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
                   <folding>
                     <element signature="e#2086#2087#0" expanded="true" />
                     <element signature="e#2118#2119#0" expanded="true" />
@@ -120,6 +117,9 @@
                     <element signature="e#3478#3479#0" expanded="true" />
                     <element signature="e#3601#3602#0" expanded="true" />
                     <element signature="e#3640#3641#0" expanded="true" />
+                    <element signature="e#4029#4030#0" expanded="true" />
+                    <element signature="e#4072#4073#0" expanded="true" />
+                    <element signature="e#4106#4107#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -128,8 +128,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Sender.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="410">
-                  <caret line="179" column="66" selection-start-line="179" selection-start-column="66" selection-end-line="179" selection-end-column="66" />
+                <state relative-caret-position="187">
+                  <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#13308#13309#0" expanded="true" />
@@ -177,8 +177,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Receiver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1989">
-                  <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+                <state relative-caret-position="17">
+                  <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -305,12 +308,12 @@
         <option value="$PROJECT_DIR$/Witcher3_The_Witchers" />
         <option value="$PROJECT_DIR$/Test/CharacterConversionTest.java" />
         <option value="$PROJECT_DIR$/src/ErrorTesting.java" />
-        <option value="$PROJECT_DIR$/src/Trame.java" />
         <option value="$PROJECT_DIR$/Test/TestBitStuffingTest.java" />
         <option value="$PROJECT_DIR$/src/BitStuffing.java" />
         <option value="$PROJECT_DIR$/Test/ErrorTestingTest.java" />
-        <option value="$PROJECT_DIR$/src/Receiver.java" />
+        <option value="$PROJECT_DIR$/src/Trame.java" />
         <option value="$PROJECT_DIR$/src/Sender.java" />
+        <option value="$PROJECT_DIR$/src/Receiver.java" />
       </list>
     </option>
   </component>
@@ -383,7 +386,7 @@
     <property name="SearchEverywhereHistoryKey" value="readTrame&#9;PSI&#9;JAVA://Trame#readTrame" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543387413758" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543388818646" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -487,7 +490,7 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="120927000" />
+      <workItem from="1542855038013" duration="122331000" />
     </task>
     <servers />
   </component>
@@ -524,7 +527,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131054000" />
+    <option name="totallyTimeSpent" value="132458000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,7 +551,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40238613" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2494577" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.7570499" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -598,9 +601,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Sender.java</url>
-          <line>170</line>
+          <line>158</line>
           <properties />
-          <option name="timeStamp" value="104" />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sender.java</url>
+          <line>179</line>
+          <properties />
+          <option name="timeStamp" value="108" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -899,13 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Receiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1989">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BitStuffing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -915,8 +917,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Trame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="37" />
+        <state relative-caret-position="297">
+          <caret line="146" column="30" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
           <folding>
             <element signature="e#2086#2087#0" expanded="true" />
             <element signature="e#2118#2119#0" expanded="true" />
@@ -940,14 +942,27 @@
             <element signature="e#3478#3479#0" expanded="true" />
             <element signature="e#3601#3602#0" expanded="true" />
             <element signature="e#3640#3641#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#4072#4073#0" expanded="true" />
+            <element signature="e#4106#4107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Receiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="179" column="66" selection-start-line="179" selection-start-column="66" selection-end-line="179" selection-end-column="66" />
+        <state relative-caret-position="187">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#13308#13309#0" expanded="true" />

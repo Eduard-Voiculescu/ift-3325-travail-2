@@ -177,30 +177,14 @@ public class Sender implements Serializable{
                             System.exit(-1);
                         } else {
                             /* We have a rejected Trame. */
-                            // currentcurr = currentPositionWindow
-                            if (trameReceived > currentPositionTrame){
-                                int diff = trameReceived - currentPositionTrame;
-                                currentPositionWindow = window - diff;
-                            }else{
-                                currentPositionWindow = currentPositionTrame - trameReceived;
-                                currentPositionWindow = window - currentPositionWindow;
+                            if(answer.isError()){
+                                for(int i = trameReceived; i < currentPositionWindow; i++){
+                                    trames.set(i, trames_nobBitStuff.get(i));
+                                }
+                                currentPositionWindow = trameReceived;
+                                currentPositionTrame = trameReceived;
+                                send = false; // on envoye plus de trame
                             }
-                            currentPositionTrame = trameReceived;
-
-                            send = false;
-                            /* We have a rejection that does not regard the connection. */
-                            for(int i = trameReceived; i < currentPositionWindow; i++){
-                                trames.set(i, trames_nobBitStuff.get(i));
-                            }
-                            this.currentPositionWindow = trameReceived;
-                            this.currentPositionTrame = trameReceived;
-//                            if (trameReceived > answer.getIndexInArrayList()){
-//                                int diff = trameReceived - this.currentPositionWindow;
-//                                this.currentPositionWindow = window - diff;
-//                            }else{
-//                                this.currentPositionWindow = trameReceived;
-////                                this.currentPositionWindow = window - this.currentPositionWindow;
-//                            }
                         }
                         System.out.println("coucou");
                     }

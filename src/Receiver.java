@@ -62,10 +62,10 @@ public class Receiver extends Thread{
                 String crc = bitStuffingReceiver.bitStuffingReceiver(trame.getCrc());
                 crc = type + num + data + crc;
 
-                if(num.equals("00000010") && !once){
-                    crc = errorTesting.bitShift(12, crc);
-                    once = true;
-                }
+//                if(num.equals("00000010") && !once){
+//                    crc = errorTesting.bitShift(12, crc);
+//                    once = true;
+//                }
 
                 boolean validCrc = checkSum.validateCRC(crc, POLYNOME_GENERATEUR);
 
@@ -148,12 +148,12 @@ public class Receiver extends Thread{
                         }
                     } else {
                         /* On attend les trames. */
-//                        System.out.println("Receiving Trame number ::: " + trame.getIndexInArrayList());
-//                        if (characterConversion.convertBinaryToDecimal(trame.getNum()) + 2 == window + trameNumber){
-//                            wait = false;
-//                            Trame connectionAccepted = new Trame(characterConversion.charToBinary("A"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
-//                            os.writeObject(connectionAccepted);
-//                        }
+                        System.out.println("Receiving Trame number ::: " + trame.getIndexInArrayList());
+                        if (characterConversion.convertBinaryToDecimal(trame.getNum()) + 2 == window + trameNumber){
+                            wait = false;
+                            Trame connectionAccepted = new Trame(characterConversion.charToBinary("A"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
+                            os.writeObject(connectionAccepted);
+                        }
                     }
                 } else { // la trame n'est valid, le crc n'est pas valid
 
@@ -163,8 +163,9 @@ public class Receiver extends Thread{
                     System.out.println("RECEIVER will refuse any Trame until " + trame.getIndexInArrayList() + " is resolved. ");
                     /* By default we have put the Num field equal to the trame that had an error. */
                     Trame errorTrame = new Trame(characterConversion.charToBinary("R"), trame.getNum(), "", "", 0);
+                    errorTrame.setError(true); // il y a une erreur dans cette trame
                     errorTrame.setCrc(checkSum.checkSumData(errorTrame.getType() + errorTrame.getNum() + errorTrame.getData(), POLYNOME_GENERATEUR));
-//                    wait = true;
+                    wait = true;
 
                 }
 
