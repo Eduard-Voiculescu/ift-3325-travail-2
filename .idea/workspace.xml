@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,7 +143,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="56">
@@ -156,11 +156,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Sender.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="467">
-                  <caret line="403" lean-forward="true" selection-start-line="403" selection-end-line="403" />
+                <state relative-caret-position="175">
+                  <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#19889#0" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -314,7 +314,7 @@
     <property name="SearchEverywhereHistoryKey" value="readTrame&#9;PSI&#9;JAVA://Trame#readTrame" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543460464035" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543462319190" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -418,7 +418,7 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="143726000" />
+      <workItem from="1542855038013" duration="145050000" />
     </task>
     <servers />
   </component>
@@ -455,7 +455,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153853000" />
+    <option name="totallyTimeSpent" value="155177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -468,6 +468,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.11513859" />
       <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.07942431" />
@@ -892,18 +893,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="403" lean-forward="true" selection-start-line="403" selection-end-line="403" />
-          <folding>
-            <element signature="e#0#19889#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#1167#1176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/CheckSumTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -926,6 +915,18 @@
           <folding>
             <element signature="e#0#1405#0" expanded="true" />
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="109" column="51" selection-start-line="109" selection-start-column="51" selection-end-line="109" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#19889#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1167#1176#0" expanded="true" />
           </folding>
         </state>
       </provider>

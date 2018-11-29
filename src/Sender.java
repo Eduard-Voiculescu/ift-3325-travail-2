@@ -106,7 +106,7 @@ public class Sender implements Serializable{
                 /* Entrer ici pour la première fois. Envoyer la trame de demande de connexion. */
                 if (!connected){
                     System.out.println("Attempting to connect ...");
-//                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
+                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
                     Trame connectionTrame = new Trame(characterConversion.charToBinary("C"), characterConversion.convertDecimalToBinary(255), "", "", 255);
                     connectionTrame.setCrc(checkSum.checkSumData(connectionTrame.getType() + connectionTrame.getNum() + connectionTrame.getData(), POLYNOME_GENERATEUR));
                     System.out.println("Trame to send to Receiver ... " + connectionTrame.prettyPrint());
@@ -128,7 +128,7 @@ public class Sender implements Serializable{
                     }
 
                 } else { // we are now connected
-//                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
+                    socket.setSoTimeout(3000); // Temporisateur de 3 secondes. -- Comment this line to be able to debug Receiver.
                     System.out.println("Trame confirmed sent -> " + numberOfTrameConfirmed);
                     /* Because our window size is of 7 we have to do another while loop. Complexity-wise could be done in a better. */
                     while (currentPositionWindow < window && currentPositionTrame < trames.size() && send) {
