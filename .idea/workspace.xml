@@ -3,22 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c803c6c3-52c5-4b49-9674-64ca06f3e746" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/CharacterConversionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/CharacterConversionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/CheckSumTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/CheckSumTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/ErrorTestingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/ErrorTestingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/TestBitStuffing.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestBitStuffing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/TestBitStuffingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestBitStuffingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Receiver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ift-3325-travail-2/Sender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BitStuffing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BitStuffing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CharacterConversion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CharacterConversion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CheckSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CheckSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ErrorTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ErrorTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Trame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,14 +28,14 @@
           <entry key="Witcher3_The_Witchers" value="1" />
           <entry key="Witcher3_The_World_Lore" value="1" />
           <entry key="class" value="3" />
-          <entry key="java" value="53" />
+          <entry key="java" value="55" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="53" />
+          <entry key="JAVA" value="55" />
           <entry key="PLAIN_TEXT" value="8" />
         </counts>
       </usages-collector>
@@ -141,11 +125,41 @@
               </provider>
             </entry>
           </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Test/CheckSumTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="396">
+                  <caret line="120" column="5" lean-forward="true" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#0#7805#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                    <element signature="method#addRDegreeZerosTest#0;class#CheckSumTest#0" />
+                    <element signature="method#XORDivionTest#0;class#CheckSumTest#0" />
+                    <element signature="method#checkSumDataTest#0;class#CheckSumTest#0" />
+                    <element signature="method#validateCRCTest#0;class#CheckSumTest#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="56">
+                  <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+                  <folding>
+                    <element signature="e#0#1405#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Sender.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="144" column="36" lean-forward="true" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
+                <state relative-caret-position="467">
+                  <caret line="403" lean-forward="true" selection-start-line="403" selection-end-line="403" />
                   <folding>
                     <element signature="e#0#19889#0" expanded="true" />
                     <element signature="imports" expanded="true" />
@@ -281,6 +295,11 @@
               <item name="ift-3325-travail-2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ift_3325_travail_2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ift-3325-travail-2" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -294,7 +313,7 @@
     <property name="SearchEverywhereHistoryKey" value="readTrame&#9;PSI&#9;JAVA://Trame#readTrame" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543459125080" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543460020763" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -398,7 +417,7 @@
       <workItem from="1542777298458" duration="229000" />
       <workItem from="1542822363038" duration="3752000" />
       <workItem from="1542847624717" duration="6146000" />
-      <workItem from="1542855038013" duration="142474000" />
+      <workItem from="1542855038013" duration="143480000" />
     </task>
     <servers />
   </component>
@@ -435,7 +454,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152601000" />
+    <option name="totallyTimeSpent" value="153607000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -450,7 +469,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.08528785" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989154" visible="true" weight="0.11513859" />
       <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.07942431" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -459,12 +478,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.40238613" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.36876357" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.78958786" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.55314535" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.31561822" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.31561822" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="10" />
@@ -827,32 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#1405#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test/CheckSumTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#7805#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="method#addRDegreeZerosTest#0;class#CheckSumTest#0" />
-            <element signature="method#XORDivionTest#0;class#CheckSumTest#0" />
-            <element signature="method#checkSumDataTest#0;class#CheckSumTest#0" />
-            <element signature="method#validateCRCTest#0;class#CheckSumTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/ErrorTestingTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -901,12 +894,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Sender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="144" column="36" lean-forward="true" selection-start-line="144" selection-start-column="36" selection-end-line="144" selection-end-column="36" />
+        <state relative-caret-position="467">
+          <caret line="403" lean-forward="true" selection-start-line="403" selection-end-line="403" />
           <folding>
             <element signature="e#0#19889#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#1167#1176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/CheckSumTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="120" column="5" lean-forward="true" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#7805#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#addRDegreeZerosTest#0;class#CheckSumTest#0" />
+            <element signature="method#XORDivionTest#0;class#CheckSumTest#0" />
+            <element signature="method#checkSumDataTest#0;class#CheckSumTest#0" />
+            <element signature="method#validateCRCTest#0;class#CheckSumTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/TestBitStuffingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#1405#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
