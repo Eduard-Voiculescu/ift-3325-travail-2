@@ -21,4 +21,4 @@ Parmi nos tests, vous trouverez :
 - CharacterConversionTest (Convertir des charactères ou des chaines de caractères en binaire et vice-versa).
 - CheckSumTest (plusieurs tests pour vérifier la robustesse de notre algorithme du calcul de CRC).
 - TestBitStuffinTest (plusieurs tests sur l'envoye de bits en appliquant un bit stuff, sur la réception de bits en applicant un "dé-bit stuff" et des tests sur l'égalité de lorsque ces derniers sont appliqués simultanément).
--ErrorTestingTest : Cette classe de tests contient des fonctions qui tests la robustesse du flux et du contrôle de nos trames. Malheureusement, pour pouvoir forcer des erreurs, on doit uncomment certaines parties du code pour induire des erreurs. 
+- ErrorTestingTest : Cette classe de tests contient des fonctions qui tests la robustesse du flux et du contrôle de nos trames. Malheureusement, pour pouvoir forcer des erreurs, on doit uncomment certaines parties du code pour induire des erreurs. 
