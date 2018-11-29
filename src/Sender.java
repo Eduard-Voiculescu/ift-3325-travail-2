@@ -1,3 +1,10 @@
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
@@ -32,7 +39,7 @@ public class Sender implements Serializable{
     int currentPositionWindow = 0;
     boolean once;
     ArrayList<Integer> tramesDestroyed = new ArrayList<Integer>();
-    ListIterator<Integer> listIterator = tramesDestroyed.listIterator();
+    ListIterator<Integer> listIterator;
     int frameDestroyed = -1;
     int count = 0;
 
@@ -132,20 +139,11 @@ public class Sender implements Serializable{
                             if(errorTesting.destroyTrame(trameToSend.getIndexInArrayList(), trameToSend) != -1) {
                                 frameDestroyed = trameToSend.getIndexInArrayList();
                                 tramesDestroyed.add(frameDestroyed);
+                                listIterator = tramesDestroyed.listIterator();
                             }
                             once = true;
-//                            count++;
+                            count++;
                         }
-                        /* Plusieurs trames */
-//                        if(!once || count != 2){
-//                            if(errorTesting.destroyTrame(trameToSend.getIndexInArrayList(), trameToSend) != -1) {
-//                                frameDestroyed = trameToSend.getIndexInArrayList();
-//                                tramesDestroyed.add(frameDestroyed);
-//                            }
-//                            once = true;
-//                            count++;
-//                        }
-
 
                         this.delimiter();
                         System.out.println("Window size left before sending Trame : " + Integer.toString(window - currentPositionWindow));
@@ -204,37 +202,22 @@ public class Sender implements Serializable{
                         os.writeObject(trameToSend); // Send Trame to Receiver
                     }
 
-                    /* We get out of the while loop once the window quota has been reached. */
-                    /* Ici cest pour gener eplusieurs trames brisee */
-//                    for(int i = 0; i< tramesDestroyed.size(); i++){
-//                        if(tramesDestroyed.get(i) != -1){
-//                            for(int j = frameDestroyed; j < currentPositionTrame; j++){
-//                                trames.set(j, trames_nobBitStuff.get(j));
-//                            }
-//                            currentPositionWindow = frameDestroyed;
-//                            currentPositionTrame = frameDestroyed;
-//                            tramesDestroyed.set(i, -1);
-//                            if(listIterator.hasNext()){
-//                                break;
-//                            } else {
-//                                frameDestroyed = -1;
-//                            }
-//                        }
-//                    }
-//                    if(frameDestroyed != 1){
-//                        os.writeObject(trames.get(frameDestroyed)); // on renvoye la trame avec erreur
-//                        continue;
-//                    }
-
-//                    frameDestroyed = -1;
-                    if(frameDestroyed != -1){
-                        for(int i = frameDestroyed; i < currentPositionTrame; i++){
-                            trames.set(i, trames_nobBitStuff.get(i));
+                    if(tramesDestroyed.size() > 0 && frameDestroyed != -1){
+                        if(tramesDestroyed.get(frameDestroyed) != -1){
+                            for(int i = frameDestroyed; i < currentPositionTrame; i++){
+                                trames.set(i, trames_nobBitStuff.get(i));
+                            }
+                            currentPositionWindow = frameDestroyed;
+                            currentPositionTrame = frameDestroyed;
+                            tramesDestroyed.set(frameDestroyed, -1);
+                            listIterator.next(); // on check le prochain
+                            if(listIterator.hasNext()){
+                                frameDestroyed = tramesDestroyed.get(frameDestroyed + 1);
+                            } else {
+                                frameDestroyed = -1;
+                            }
+                            continue;
                         }
-                        currentPositionWindow = frameDestroyed;
-                        currentPositionTrame = frameDestroyed;
-                        frameDestroyed = -1;
-                        continue;
                     }
 
                     Trame answer = (Trame) is.readObject();
@@ -272,6 +255,7 @@ public class Sender implements Serializable{
                             System.out.println("We have received an REJ where a Trame contains an error.");
                             System.out.println("We will have to send again the trames. ");
                             System.out.println("Those that have been sent will be treated accordingly on the Receiver side.");
+                            System.out.println("The respective Trame with REJ was ::: " + answer.getIndexInArrayList());
                             System.out.println("******************************************************************************");
                             System.out.println();
 
@@ -320,9 +304,10 @@ public class Sender implements Serializable{
     }
 
     /**
-     * Create trames list from data
-     *
-     * @return ArrayList
+     * Create trames list from data where every line is a trame.
+     * @param fileName : file name of the file to read information.
+     * @return : An ArrayList<Trame> where every trame is a line.
+     * @throws IOException
      */
     private ArrayList<Trame> createTrames(String fileName) throws IOException {
 
@@ -348,15 +333,11 @@ public class Sender implements Serializable{
                     i);
             trames.add(trame);
         }
-
-        // Devrait-on calculer CRC ici ou dans Trame?
-
         return trames;
     }
 
     /**
      * Read a file line by line and store data in array
-     *
      * @param fileName String
      * @return ArrayList of data
      * @throws IOException
@@ -379,7 +360,9 @@ public class Sender implements Serializable{
         return dataTable;
     }
 
-    /* The functions below are only used to pretty print the Sender information. */
+    /**
+     * The functions below are only used to pretty print the Sender information.
+     */
     private void delimiter(){
         System.out.println("####################################################################################################");
     }
@@ -389,24 +372,24 @@ public class Sender implements Serializable{
      */
     public static void main(String[] args) throws IOException {
 
-//        if (args.length != 4) {
-//            System.err.println("Mauvais nombre d'arguments.");
-//            System.exit(0);
-//        }
-//
-//        String Nom_machine = args[0];
-//        int port = Integer.parseInt(args[1]);
-//        String filename = args[2];
-//        String protocole = args[3];
-//        if(!protocole.equals("0")){
-//            System.out.println("The protocole specified is not Go-Back-N.");
-//            System.out.println("The program will now exit.");
-//            System.exit(0);
-//        }
+        if (args.length != 4) {
+            System.err.println("Mauvais nombre d'arguments.");
+            System.exit(0);
+        }
+
+        String Nom_machine = args[0];
+        int port = Integer.parseInt(args[1]);
+        String filename = args[2];
+        String protocole = args[3];
+        if(!protocole.equals("0")){
+            System.out.println("The protocole specified is not Go-Back-N.");
+            System.out.println("The program will now exit.");
+            System.exit(0);
+        }
 
         try {
-//            Sender sender = new Sender(Nom_machine, port, filename, protocole);
-            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
+            Sender sender = new Sender(Nom_machine, port, filename, protocole);
+//            Sender sender = new Sender("127.0.0.1", 6969, "Lorem.txt", "0");
 //            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_Wtichers.txt", "0");
 //            Sender sender = new Sender("127.0.0.1", 6969, "Witcher3_The_World_Lore.txt", "0");
 

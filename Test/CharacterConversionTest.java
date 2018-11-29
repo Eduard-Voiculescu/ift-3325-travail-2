@@ -1,9 +1,17 @@
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class CharacterConversionTest {
 
     private CharacterConversion characterConversion = new CharacterConversion();
+
     @Test
     public void testBinaryToChar() {
         String result;

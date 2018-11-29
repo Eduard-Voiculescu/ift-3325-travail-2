@@ -1,15 +1,18 @@
 
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 public class ErrorTesting {
 
     /*
-    * TODO : Have to create test cases for Errors possible to occur in Trames being sent.
     * 1) Lose of Trame
     * 2) Errors of transmission
     * 3) Loses of ACK
     * 4) faire une test de timeout
-    *
-    * */
-    // Faire une fonction qui bit shift un bit
+    */
 
     /**
      * Force a time out. In this case, force a 10 seconds timeout.
@@ -42,6 +45,12 @@ public class ErrorTesting {
     }
 
 
+    /**
+     * This function will destroy specified trame.
+     * @param numTrameToDestroy : number associated to trame to destroy.
+     * @param trame : destroy specified trame.
+     * @return : the number of the trame specified.
+     */
     public int destroyTrame(int numTrameToDestroy, Trame trame){
         if(trame.getIndexInArrayList() == numTrameToDestroy){
             trame.setError(true);

@@ -1,3 +1,10 @@
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -10,7 +17,7 @@ public class CheckSumTest {
      * and computer Engineering of University of New Brunswick. Il y avait quelques autres
      * site qui était probablement valide, mais puisque ce dernier est un site universitaire, il y a plus
      * de chance que le site soit ok. Site web : http://www.ee.unb.ca/cgi-bin/tervo/calc.pl
-     * */
+     */
 
     CheckSum checkSum = new CheckSum();
 

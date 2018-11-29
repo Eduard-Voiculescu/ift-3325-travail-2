@@ -1,3 +1,10 @@
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 import java.io.Serializable;
 
 public class Trame implements Serializable {
@@ -46,6 +53,9 @@ public class Trame implements Serializable {
         return result;
     }
 
+    /**
+     * @return
+     */
     public String bitStuffSenderTrame(){
         return bitStuffing.bitStuffingSender(this.type + this.num + this.data + this.crc);
     }
@@ -103,6 +113,13 @@ public class Trame implements Serializable {
         this.indexInArrayList = indexInArrayList;
     }
 
+    /**
+     * @param error : sets the error
+     */
+    public void setError(boolean error) {
+        this.error = error;
+    }
+
     /* ------------------------------------------- Getters ------------------------------------------- */
 
     /**
@@ -119,6 +136,9 @@ public class Trame implements Serializable {
         return type;
     }
 
+    /**
+     * @return : gets the number of the trame.
+     */
     public String getNum() {
         return num;
     }
@@ -144,11 +164,10 @@ public class Trame implements Serializable {
         return indexInArrayList;
     }
 
+    /**
+     * @return : returns a boolean of the error.
+     */
     public boolean isError() {
         return error;
-    }
-
-    public void setError(boolean error) {
-        this.error = error;
     }
 }

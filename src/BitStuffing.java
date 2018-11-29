@@ -1,3 +1,10 @@
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 import java.io.Serializable;
 
 /**
@@ -68,14 +75,6 @@ public class BitStuffing implements Serializable {
             }
         }
         return bitStuffedData.toString();
-    }
-
-    public static void main(String[] args) {
-        BitStuffing bitStuffing = new BitStuffing();
-        System.out.println(bitStuffing.bitStuffingSender("0011000111111000"));
-
-        System.out.println(bitStuffing.bitStuffingReceiver("00110001111101000"));
-
     }
 
 }

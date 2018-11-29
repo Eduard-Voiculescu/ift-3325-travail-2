@@ -1,6 +1,11 @@
 
-public class CharacterConversion {
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
 
+public class CharacterConversion {
 
     /**
      * This function takes in a binary as a String type and converts it to characters.
@@ -43,18 +48,23 @@ public class CharacterConversion {
         return result.toString();
     }
 
-    /* Code adapted from https://stackoverflow.com/questions/18348745/decimal-to-binary-8-bits-only-using-append */
-    public String convertDecimalToBinary(int no){ // 0 ... 7
+    /**
+     * This function will convert a decimal in a 8bit binary format.
+     * Code adapted from https://stackoverflow.com/questions/18348745/decimal-to-binary-8-bits-only-using-append
+     * @param number : nombre à convertir en binaire.
+     * @return
+     */
+    public String convertDecimalToBinary(int number){ // 0 ... 7
 
         StringBuilder stringBuilder = new StringBuilder();
         StringBuilder stringBuilder1 = new StringBuilder();
         String padding;
         int restant;
 
-        while (no != 0){
-            restant = no % 2;
+        while (number != 0){
+            restant = number % 2;
             stringBuilder.append(restant);
-            no = no / 2;
+            number = number / 2;
         }
         padding = stringBuilder.reverse().toString();
         int length = padding.length();
@@ -67,7 +77,11 @@ public class CharacterConversion {
         return stringBuilder1.toString() + padding;
     }
 
-    /* Inspiration : https://www.thecrazyprogrammer.com/2015/11/program-to-convert-binary-to-decimal-in-java.html */
+    /**
+     * This function will convert an 8 bit binary to a decimal.
+     * @param binary : binary to convert to decimal.
+     * @return : decimal number associated to 8 bit binary format.
+     */
     public int convertBinaryToDecimal(String binary){
         return Integer.parseInt(binary, 2);
     }

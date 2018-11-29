@@ -1,4 +1,9 @@
-import java.sql.SQLOutput;
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
 
 public class CheckSum {
 
@@ -149,21 +154,6 @@ public class CheckSum {
 
         return result.toString();
 
-    }
-
-    public static void main(String[] args) {
-        CheckSum cs = new CheckSum();
-
-        String current = cs.XORDivision("101100110000", "10011").toString();
-        System.out.println(current);
-        System.out.println(current.equals("0100"));
-
-        String a = cs.checkSumData("101100110100", "10011");
-        System.out.println(a);
-
-        System.out.println(cs.validateCRC("","1001"));
-
-        System.out.println(cs.XORDivision("100010000001000", "10001000000100001").toString());
     }
 
 }

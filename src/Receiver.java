@@ -1,29 +1,51 @@
+
+/*
+ * Travail fait par EID Alain et VOICULESCU Eduard.
+ * Cours --- IFT-3325 : Téléinformatique --- Université de Montréal.
+ * Travail remis à Zakaria Abou El Houda.
+ */
+
 import java.io.*;
 import java.net.*;
 
 public class Receiver extends Thread{
 
+    /* Final variable associated to POLYNOME_GENERATEUR. */
     private static final String POLYNOME_GENERATEUR= "10001000000100001";
 
+    /* Objects to use. */
     private CheckSum checkSum = new CheckSum();
     private static BitStuffing bitStuffingReceiver = new BitStuffing();
     private static CharacterConversion characterConversion = new CharacterConversion();
     private static ErrorTesting errorTesting = new ErrorTesting();
+
+    /* Used for testing purposes. */
     boolean once = false;
 
     /* Receiver attributes */
     private int port;
 
+    /**
+     * Constructor of Receiver.
+     * @param port : port number that Sender will connect to.
+     * @throws IOException
+     */
     public Receiver (int port) throws IOException {
         this.port = port;
         this.runReceiver();
     }
 
-    /* The functions below are only used to pretty print the Sender information. */
+    /**
+     * The functions below are only used to pretty print the Sender information.
+     */
     private void delimiter(){
         System.out.println("####################################################################################################");
     }
 
+    /**
+     * Run the Receiver.
+     * @throws IOException
+     */
     public void runReceiver() throws IOException{
 
         try (
@@ -129,10 +151,12 @@ public class Receiver extends Thread{
 
                                 System.out.println("ERROR ::: We have not received the appropriate Trame ::: ");
                                 System.out.println("We have not received the Trame number " + trameNumber);
+
                                 if (!once){
                                     frameDestroyed = trameNumber;
                                     once = true;
                                 }
+
 //                                Trame REJTrame = new Trame(characterConversion.charToBinary("R"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
 //                                os.writeObject(REJTrame);
 
@@ -146,7 +170,7 @@ public class Receiver extends Thread{
 
                             System.out.println("RECEIVER Received a Trame with P bit. ");
                             System.out.println("SENDING immediate ACK ::: ");
-                            Trame pBitACKTrame = new Trame(characterConversion.charToBinary("P"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
+                            Trame pBitACKTrame = new Trame(characterConversion.charToBinary("A"), characterConversion.convertDecimalToBinary(trameNumber), "", POLYNOME_GENERATEUR, trame.getIndexInArrayList());
                             System.out.println("SENDING ACK Trame (prettyPrint) in response to P Bit Trame ::: " + pBitACKTrame.prettyPrint());
                             System.out.println("SENDING ACK Trame in response to P Bit Trame ::: " + pBitACKTrame.makeTrameFormat());
                             os.writeObject(pBitACKTrame);
@@ -178,7 +202,6 @@ public class Receiver extends Thread{
 
                     frameError = trame.getIndexInArrayList();
 
-//                    this.delimiter();
                     System.out.println("ERROR ::: INVALID CRC ::: The Trame we received contains an error ::: ");
                     System.out.println("SENDING ::: REJ Trame ... ");
                     System.out.println("RECEIVER will refuse any Trame until " + trame.getIndexInArrayList() + " is resolved. ");
@@ -200,7 +223,7 @@ public class Receiver extends Thread{
         } catch (IOException e) {
             System.err.println("ERROR ::: Buffer has Timed Out.");
 
-        }finally {
+        } finally {
             System.out.println();
         }
 
@@ -211,7 +234,6 @@ public class Receiver extends Thread{
      */
     public static void main(String[] args) throws IOException {
 
-//        int port = Integer.parseInt(args[0]);
         try {
             if (args.length == 0){ // no port was entered
                 System.err.println("No argument was entered. Rerun the program and don't forget to only specify the port number.");
